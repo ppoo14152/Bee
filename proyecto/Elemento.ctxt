@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Elemento()
+comment1.params=a
+comment1.target=void\ retirar(greenfoot.Actor)
+comment2.params=
+comment2.target=int\ getAncho()
+comment3.params=
+comment3.target=int\ getAlto()
+comment4.params=c
+comment4.target=greenfoot.Actor\ colisionar(java.lang.Class)
+numComments=5
