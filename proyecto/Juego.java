@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.util.*;
+import java.util.LinkedList;
 
 public class Juego extends World
 {
@@ -12,6 +12,7 @@ public class Juego extends World
     private int fase;
     private LinkedList <GreenfootImage> imagenes;
     
+    
     public Juego()
     {
         super(480, 600, 1);
@@ -20,19 +21,40 @@ public class Juego extends World
         menu = 0;
         fase = 0;
         imagenes = new LinkedList();
-        imagenes.add(new GreenfootImage("ayuda.png"));      //0
-        imagenes.add(new GreenfootImage("ayuda2.png"));     //1
-        imagenes.add(new GreenfootImage("records.png"));    //2
-        imagenes.add(new GreenfootImage("creditos.png"));   //3
-        imagenes.add(new GreenfootImage("gameover.png"));   //4
-        imagenes.add(new GreenfootImage("fondo1.png"));     //5
-        imagenes.add(new GreenfootImage("menu.png"));       //6
-        imagenes.add(new GreenfootImage("boton_play.png")); //7
+        imagenes.add(new GreenfootImage("ayuda.png"));         //0
+        imagenes.add(new GreenfootImage("ayuda2.png"));        //1
+        imagenes.add(new GreenfootImage("records.png"));       //2
+        imagenes.add(new GreenfootImage("creditos.png"));      //3
+        imagenes.add(new GreenfootImage("gameover.png"));      //4
+        imagenes.add(new GreenfootImage("fondo1.png"));        //5
+        imagenes.add(new GreenfootImage("menu.png"));          //6
+        imagenes.add(new GreenfootImage("boton_play.png"));    //7
         imagenes.add(new GreenfootImage("boton_regresar.png"));//8
-        imagenes.add(new GreenfootImage("boton_record.png"));//9
-        imagenes.add(new GreenfootImage("boton_jugar.png"));//10
+        imagenes.add(new GreenfootImage("boton_record.png"));  //9
+        imagenes.add(new GreenfootImage("boton_jugar.png"));   //10
         imagenes.add(new GreenfootImage("boton_creditos.png"));//11
+        imagenes.add(new GreenfootImage("a1.png"));            //12
+        imagenes.add(new GreenfootImage("a2.png"));            //13
+        imagenes.add(new GreenfootImage("abeja1.png"));        //14
+        imagenes.add(new GreenfootImage("abeja2.png"));        //15
+        imagenes.add(new GreenfootImage("abeja3.png"));        //16
+        imagenes.add(new GreenfootImage("abeja4.png"));        //17
+        imagenes.add(new GreenfootImage("abejachoque.png"));   //18
+        imagenes.add(new GreenfootImage("base.png"));          //19
+        imagenes.add(new GreenfootImage("flor.png"));          //20
+        imagenes.add(new GreenfootImage("hoja.png"));          //21
+        imagenes.add(new GreenfootImage("hoja2.png"));         //22
+        imagenes.add(new GreenfootImage("nectar.png"));        //23
+        imagenes.add(new GreenfootImage("pasto.png"));         //24
+        imagenes.add(new GreenfootImage("piedra.png"));        //25
+        imagenes.add(new GreenfootImage("puntero.png"));       //26
+        imagenes.add(new GreenfootImage("tela.png"));          //27
         menu();
+    }
+    
+    public GreenfootImage getImagen(int n)
+    {
+        return imagenes.get(n);
     }
     
     public Boton dameJugar()
@@ -62,36 +84,36 @@ public class Juego extends World
     
     public void ayuda1()
     {
-        setBackground(imagenes.get(0));
-        siguiente = new Boton(imagenes.get(7));
+        setBackground(getImagen(0));
+        siguiente = new Boton(getImagen(7));
         addObject(siguiente, getWidth() / 2, 550);
     }
     
     public void ayuda2()
     {
-        setBackground(imagenes.get(1));
-        siguiente = new Boton(imagenes.get(7));
+        setBackground(getImagen(1));
+        siguiente = new Boton(getImagen(7));
         addObject(siguiente, getWidth() / 2, 550);
     }
     
     public void record()
     {
-        setBackground(imagenes.get(2));
-        regresar = new Boton(imagenes.get(8));
+        setBackground(getImagen(2));
+        regresar = new Boton(getImagen(8));
         addObject(regresar, getWidth() / 2, 550);
     }
     
     public void creditos()
     {
-        setBackground(imagenes.get(3));
-        regresar = new Boton(imagenes.get(8));
+        setBackground(getImagen(3));
+        regresar = new Boton(getImagen(8));
         addObject(regresar, getWidth() / 2, 550);
     }
     
     public void gameOver()
     {
-        setBackground(imagenes.get(4));
-        regresar = new Boton(imagenes.get(8));
+        setBackground(getImagen(4));
+        regresar = new Boton(getImagen(8));
         addObject(regresar, getWidth() / 2, 550);
     }
     
@@ -99,7 +121,7 @@ public class Juego extends World
     {
         fase = 1;
         limiteNectar = 20;
-        setBackground(imagenes.get(5));
+        setBackground(getImagen(5));
         principal = new Bee(5);
         addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
         addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
@@ -113,12 +135,12 @@ public class Juego extends World
     
     public void menu()
     {
-        setBackground(imagenes.get(6));
-        jugar = new Boton(imagenes.get(10));
+        setBackground(getImagen(6));
+        jugar = new Boton(getImagen(10));
         addObject(jugar, getWidth() / 3, 250);
-        record = new Boton(imagenes.get(9));
+        record = new Boton(getImagen(9));
         addObject(record, getWidth() / 3, 400);
-        creditos = new Boton(imagenes.get(11));
+        creditos = new Boton(getImagen(11));
         addObject(creditos, getWidth() / 3, 550);
         addObject(new Mouse(), 0, 0);
         menu = 1;
@@ -162,8 +184,8 @@ public class Juego extends World
             {
                 if(nectar == limiteNectar + 4 && principal.getVida() > 0)
                 {
-                    showText("", 80, getHeight() - 48);
-                    showText("", 165, getHeight() - 48);
+                    showText("", 80, getHeight() - 63);
+                    showText("", 165, getHeight() - 63);
                     removeObjects(getObjects(null));
                     fase = 0;
                     ayuda2();

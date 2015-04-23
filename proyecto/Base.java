@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-public class Base extends Actor
+public class Base extends Elemento
 {
     public Base()
     {

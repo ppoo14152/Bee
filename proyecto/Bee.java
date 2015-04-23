@@ -21,8 +21,8 @@ public class Bee extends Elemento
         animar();
         desplazar();
         setContador();
-        world.showText("x " + numNectar, 80, getAlto() - 48);
-        world.showText("x " + vida, 165, getAlto() - 48);
+        world.showText("x " + numNectar, 80, getAlto() - 63);
+        world.showText("x " + vida, 165, getAlto() - 63);
     }
 
     public void desplazar()
