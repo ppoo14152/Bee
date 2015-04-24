@@ -15,6 +15,12 @@ public class Clase1 extends Actor
     public void act() 
     {
         // Agrega tus códigos de acción aquí.
+    }
+    
+    public void metodo1()
+    {
+        //Agregado por MI
+    }
     }   
     public void metodo1()
     {
