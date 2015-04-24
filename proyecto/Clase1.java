@@ -21,8 +21,8 @@ public class Clase1 extends Actor
     {
         //Agregado por MI
     }
-    }   
-    public void metodo1()
+       
+    public void metodo2()
     {
         //agregado por Jose Joaquin
     }
