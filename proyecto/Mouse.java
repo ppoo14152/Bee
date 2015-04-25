@@ -9,10 +9,12 @@ public class Mouse extends Elemento
     private int tocaC;
     private Juego bee;
     private Boton jugar, record, regresar, siguiente, creditos;
+    private GreenfootImage sprite;
     
     public Mouse()
     {
         super();
+        sprite = new GreenfootImage("puntero.png");
         tocaJ = 0;
         tocaR = 0;
         tocaV = 0;
@@ -30,7 +32,7 @@ public class Mouse extends Elemento
             MouseInfo mouse = Greenfoot.getMouseInfo();
             setLocation(mouse.getX(), mouse.getY());
         }
-        setImage("puntero.png");
+        setImage(sprite);
         if(tocaS == 1)
         {
             if(Greenfoot.mouseClicked(siguiente))

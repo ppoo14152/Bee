@@ -3,12 +3,14 @@ import greenfoot.*;
 public class Tela extends Elemento
 {
     private int frame;
+    private GreenfootImage sprite;
   
     public Tela()
     {
         super();
         frame = 0;
-        setImage("tela.png");
+        sprite = new GreenfootImage("tela.png");
+        setImage(sprite);
     }
     
     public void act() 
