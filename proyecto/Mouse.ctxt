@@ -1,10 +1,12 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Mouse()
+comment0.params=ima
+comment0.target=Mouse(greenfoot.GreenfootImage)
 comment1.params=
 comment1.target=void\ act()
-comment2.params=
-comment2.target=void\ seleccionBoton()
-comment3.params=world
-comment3.target=void\ addedToWorld(greenfoot.World)
-numComments=4
+comment2.params=n
+comment2.target=greenfoot.GreenfootImage\ getImagen(int)
+comment3.params=
+comment3.target=void\ seleccionBoton()
+comment4.params=world
+comment4.target=void\ addedToWorld(greenfoot.World)
+numComments=5

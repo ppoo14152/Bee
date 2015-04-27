@@ -10,8 +10,7 @@ public class Juego extends World
     private int menu; // bandera que indica si estamos en el menu
     private Boton jugar, record, regresar, siguiente, creditos; //Objetos tipo boton del menu
     private int fase;
-    private MouseInfo mouse;
-    private int tocaJ;
+    private Mouse mouse;
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound sonido;
     
@@ -22,8 +21,7 @@ public class Juego extends World
         nectar = 0;
         menu = 0;
         fase = 0;
-        tocaJ = 0;
-        sonido = new GreenfootSound("menu.wav");
+        sonido = new GreenfootSound("click.wav");
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("ayuda.png"));         //0
         imagenes.add(new GreenfootImage("ayuda2.png"));        //1
@@ -37,11 +35,13 @@ public class Juego extends World
         imagenes.add(new GreenfootImage("boton_record.png"));  //9
         imagenes.add(new GreenfootImage("boton_jugar.png"));   //10
         imagenes.add(new GreenfootImage("boton_creditos.png"));//11
+        imagenes.add(new GreenfootImage("puntero.png"));       //12
         jugar = new Boton(getImagen(10));
         record = new Boton(getImagen(9));
         creditos = new Boton(getImagen(11));
         regresar = new Boton(getImagen(8));
         siguiente = new Boton(getImagen(7));
+        mouse = new Mouse(getImagen(12));
         menu();
     }
     
@@ -83,7 +83,7 @@ public class Juego extends World
     
     public void ayuda2()
     {
-        setBackground(getImagen(1));
+        setBackground(getImagen(1));     
         addObject(siguiente, getWidth() / 2, 550);
     }
     
@@ -127,32 +127,40 @@ public class Juego extends World
         addObject(jugar, getWidth() / 3, 250);
         addObject(record, getWidth() / 3, 400);
         addObject(creditos, getWidth() / 3, 550);
-        //addObject(new Mouse(), 0, 0);
+        addObject(mouse, 0, 0);
         menu = 1;
         Greenfoot.setSpeed(50);
     }
     
     public void act()
     {
-        mouse = Greenfoot.getMouseInfo();
-        animaMenu();
         if(Greenfoot.mouseClicked(creditos))
         {
+            sonido.play();
             removeObjects(getObjects(null));
             creditos();
         }
         if(Greenfoot.mouseClicked(regresar))
         {
+            sonido.play();
             removeObjects(getObjects(null));
             menu();
         }
         if(Greenfoot.mouseClicked(record))
         {
+            sonido.play();
             removeObjects(getObjects(null));
             record();
         }
-          if(Greenfoot.mouseClicked(jugar))
+        if(Greenfoot.mouseClicked(jugar))
         {
+            sonido.play();
+            removeObjects(getObjects(null));
+            ayuda1();
+        }
+        if(Greenfoot.mouseClicked(siguiente))
+        {
+            sonido.play();
             removeObjects(getObjects(null));
             nivel1();
         }
@@ -173,58 +181,7 @@ public class Juego extends World
             }
         }
     }
-    
-    public void animaMenu()
-    {
-        int tocaR = 0;
-        int tocaV = 0;
-        int tocaS = 0;
-        int tocaC = 0;
-        //if(mouse.getActor() == jugar)
-        if(Greenfoot.mouseMoved(jugar))
-        {
-            tocaJ = 1;
-           
 
-        }
-        else
-        {
-            tocaJ = 0;
-        }
-        if(tocaJ == 1)
-        {
-         sonido.play();
-        }
-        
-        /*if(bot == null && tocaJ == 1)
-        {
-            jugar.setImage("boton_jugar.png");
-            tocaJ = 0;
-        }
-        if(bot != null && getY() > 350 && getY() < 450  && tocaR == 0)
-        {
-            Greenfoot.playSound("menu.wav");
-            record.setImage("boton_record2.png");
-            tocaR = 1;
-        }
-        if(bot == null && tocaR == 1)
-        {
-            record.setImage("boton_record.png");
-            tocaR = 0;
-        }
-        if(bot != null && getY() > 500 && tocaC == 0)
-        {
-            Greenfoot.playSound("menu.wav");
-            creditos.setImage("boton_creditos2.png");
-            tocaC = 1;
-        }
-        if(bot == null && tocaC == 1)
-        {
-            creditos.setImage("boton_creditos.png");
-            tocaC = 0;
-        }
-        */
-    }
     public void agregaNectar()
     {
         int n = Greenfoot.getRandomNumber(getWidth()) + 61;

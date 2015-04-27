@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.LinkedList;
 
 public class Mouse extends Elemento
 {
@@ -7,19 +8,29 @@ public class Mouse extends Elemento
     private int tocaV;
     private int tocaS;
     private int tocaC;
+    private LinkedList <GreenfootImage> sprites;
+    private GreenfootSound sonido;
     private Juego bee;
     private Boton jugar, record, regresar, siguiente, creditos;
-    private GreenfootImage sprite;
     
-    public Mouse()
+    public Mouse(GreenfootImage ima)
     {
         super();
-        sprite = new GreenfootImage("puntero.png");
+        this.setImage(ima);
         tocaJ = 0;
         tocaR = 0;
         tocaV = 0;
         tocaS = 0;
         tocaC = 0;
+        sprites = new LinkedList();
+        sprites.add(new GreenfootImage("puntero.png"));        //0
+        sprites.add(new GreenfootImage("boton_jugar.png"));    //1
+        sprites.add(new GreenfootImage("boton_record.png")); //2
+        sprites.add(new GreenfootImage("boton_creditos.png"));   //3
+        sprites.add(new GreenfootImage("boton_jugar2.png"));   //4
+        sprites.add(new GreenfootImage("boton_record2.png"));//5
+        sprites.add(new GreenfootImage("boton_creditos2.png"));  //6
+        sonido = new GreenfootSound("menu.wav");
     }
     
     public void act()
@@ -27,74 +38,19 @@ public class Mouse extends Elemento
         jugar = bee.dameJugar();
         record = bee.dameRecord();
         creditos = bee.dameCreditos();
+ 
         if(Greenfoot.mouseMoved(null))
         {
             MouseInfo mouse = Greenfoot.getMouseInfo();
-            setLocation(mouse.getX(), mouse.getY());
+            setLocation(mouse.getX() + 7, mouse.getY() + 5);
         }
-        setImage(sprite);
-        if(tocaS == 1)
-        {
-            if(Greenfoot.mouseClicked(siguiente))
-            {
-                Greenfoot.playSound("click.wav");
-                retirar(siguiente);
-                bee.nivel1();
-            }
-        }
-        else
-        {
-            if(Greenfoot.mouseClicked(null) && tocaJ == 1)
-            {
-                Greenfoot.playSound("click.wav");
-                retirar(jugar);
-                retirar(record);
-                retirar(creditos);
-                bee.ayuda1();
-                siguiente = bee.dameSiguiente();
-                tocaS = 1;
-            }
-            else
-            {
-                if(Greenfoot.mouseClicked(this) && tocaR == 1)
-                {
-                    Greenfoot.playSound("click.wav");
-                    tocaR = 0;
-                    retirar(jugar);
-                    retirar(record);
-                    retirar(creditos);
-                    bee.record();
-                    regresar = bee.dameRegresar();
-                    tocaV = 1;
-                }
-                if(Greenfoot.mouseClicked(this) && tocaC == 1)
-                {
-                    Greenfoot.playSound("click.wav");
-                    tocaC = 0;
-                    retirar(jugar);
-                    retirar(record);
-                    retirar(creditos);
-                    bee.creditos();
-                    regresar = bee.dameRegresar();
-                    tocaV = 1;
-                }
-                if(tocaV == 1)
-                {
-                    if(Greenfoot.mouseClicked(regresar))
-                    {
-                        Greenfoot.playSound("click.wav");
-                        tocaV = 0;
-                        bee.menu();
-                        retirar(regresar);
-                        retirar(this);
-                    }
-                }   
-                else
-                {
-                    seleccionBoton();
-                }
-            }
-        }   
+        setImage(getImagen(0));
+        seleccionBoton();   
+    }
+    
+    public GreenfootImage getImagen(int n)
+    {
+        return sprites.get(n);
     }
     
     public void seleccionBoton()
@@ -102,35 +58,35 @@ public class Mouse extends Elemento
         Actor bot = getOneIntersectingObject(Boton.class);
         if(bot != null && getY() < 300 && tocaJ == 0)
         {
-            Greenfoot.playSound("menu.wav");
-            jugar.setImage("boton_jugar2.png");
+            sonido.play();
+            jugar.setImage(getImagen(4));
             tocaJ = 1;
         }
         if(bot == null && tocaJ == 1)
         {
-            jugar.setImage("boton_jugar.png");
+            jugar.setImage(getImagen(1));
             tocaJ = 0;
         }
         if(bot != null && getY() > 350 && getY() < 450  && tocaR == 0)
         {
-            Greenfoot.playSound("menu.wav");
-            record.setImage("boton_record2.png");
+            sonido.play();
+            record.setImage(getImagen(5));
             tocaR = 1;
         }
         if(bot == null && tocaR == 1)
         {
-            record.setImage("boton_record.png");
+            record.setImage(getImagen(2));
             tocaR = 0;
         }
         if(bot != null && getY() > 500 && tocaC == 0)
         {
-            Greenfoot.playSound("menu.wav");
-            creditos.setImage("boton_creditos2.png");
+            sonido.play();
+            creditos.setImage(getImagen(6));
             tocaC = 1;
         }
         if(bot == null && tocaC == 1)
         {
-            creditos.setImage("boton_creditos.png");
+            creditos.setImage(getImagen(3));
             tocaC = 0;
         }
     }
