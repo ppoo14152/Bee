@@ -6,19 +6,21 @@ public class Juego extends World
     private int limiteNectar;
     private float frame;
     private Bee principal;
-    private int nectar;
+    private int contNectar;
+    private int nectarTotal;
     private int menu; // bandera que indica si estamos en el menu
-    private Boton jugar, record, regresar, siguiente, creditos; //Objetos tipo boton del menu
+    private Boton jugar, record, regresar, siguiente, siguiente2, creditos; //Objetos tipo boton del menu
     private int fase;
     private Mouse mouse;
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound sonido;
     
-    public Juego()
+   public Juego()
     {
         super(480, 600, 1);
         frame = 0;
-        nectar = 0;
+        contNectar = 0;
+        nectarTotal = 0;
         menu = 0;
         fase = 0;
         sonido = new GreenfootSound("click.wav");
@@ -36,81 +38,88 @@ public class Juego extends World
         imagenes.add(new GreenfootImage("boton_jugar.png"));   //10
         imagenes.add(new GreenfootImage("boton_creditos.png"));//11
         imagenes.add(new GreenfootImage("puntero.png"));       //12
+        imagenes.add(new GreenfootImage("fondo2.png"));        //13
+        principal = new Bee(5);
         jugar = new Boton(getImagen(10));
         record = new Boton(getImagen(9));
         creditos = new Boton(getImagen(11));
         regresar = new Boton(getImagen(8));
         siguiente = new Boton(getImagen(7));
+        siguiente2 = new Boton(getImagen(7));
         mouse = new Mouse(getImagen(12));
         menu();
     }
     
-    public GreenfootImage getImagen(int n)
+   public GreenfootImage getImagen(int n)
     {
         return imagenes.get(n);
     }
     
-    public Boton dameJugar()
+   public Boton dameJugar()
     {
         return jugar;
     }
      
-    public Boton dameRecord()
+   public Boton dameRecord()
     {
         return record;
     }
     
-    public Boton dameRegresar()
+   public Boton dameRegresar()
     {
         return regresar;
     }
     
-    public Boton dameSiguiente()
+   public Boton dameSiguiente()
     {
         return siguiente;
     }
     
-    public Boton dameCreditos()
+   public Boton dameSiguiente2()
+    {
+        return siguiente2;
+    }
+    
+   public Boton dameCreditos()
     {
         return creditos;
     }
     
-    public void ayuda1()
+   public void ayuda1()
     {
         setBackground(getImagen(0));
-        addObject(siguiente, getWidth() / 2, 550);
+        addObject(siguiente, getWidth() / 2, 500);
     }
     
-    public void ayuda2()
+   public void ayuda2()
     {
         setBackground(getImagen(1));     
-        addObject(siguiente, getWidth() / 2, 550);
+        addObject(siguiente2, getWidth() / 2, 500);
     }
     
-    public void record()
+   public void record()
     {
         setBackground(getImagen(2));      
-        addObject(regresar, getWidth() / 2, 550);
+        addObject(regresar, getWidth() / 2, 500);
     }
     
-    public void creditos()
+   public void creditos()
     {
         setBackground(getImagen(3));
-        addObject(regresar, getWidth() / 2, 550);
+        addObject(regresar, getWidth() / 2, 500);
     }
     
-    public void gameOver()
+   public void gameOver()
     {
         setBackground(getImagen(4));
-        addObject(regresar, getWidth() / 2, 550);
+        addObject(regresar, getWidth() / 2, 500);
     }
     
-    public void nivel1()
+   public void nivel1()
     {
         fase = 1;
-        limiteNectar = 20;
+        limiteNectar = 5;
         setBackground(getImagen(5));
-        principal = new Bee(5);
         addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
         addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
         addObject(new Ambiente(), (getWidth() * 3) / 4, ((getHeight() - 60) * 3) / 5);
@@ -121,18 +130,46 @@ public class Juego extends World
         addObject(principal, getWidth() / 2, getHeight() - 200);
     }
     
-    public void menu()
+   public void nivel1fase2()
+    {
+        fase = 2;
+        setBackground(getImagen(13));
+       
+    }
+    
+   public void menu()
     {
         setBackground(getImagen(6));
-        addObject(jugar, getWidth() / 3, 250);
-        addObject(record, getWidth() / 3, 400);
-        addObject(creditos, getWidth() / 3, 550);
+        addObject(jugar, getWidth() / 3, 240);
+        addObject(record, getWidth() / 3, 390);
+        addObject(creditos, getWidth() / 3, 540);
         addObject(mouse, 0, 0);
         menu = 1;
         Greenfoot.setSpeed(50);
     }
     
-    public void act()
+   public void act()
+    {
+        seleccionar();        
+        if(fase == 1)
+        {
+            if(principal.getVida() == 0)
+            {
+                showText("", 80, getHeight() - 63);
+                showText("", 165, getHeight() - 63);
+                removeObjects(getObjects(null));
+                fase = 0;
+                gameOver();
+            }
+            else
+            {
+                agregaNectar();
+                frame++;
+            }
+        }
+    }
+    
+   public void seleccionar()
     {
         if(Greenfoot.mouseClicked(creditos))
         {
@@ -162,27 +199,16 @@ public class Juego extends World
         {
             sonido.play();
             removeObjects(getObjects(null));
-            nivel1();
+              nivel1();                  
         }
-        if(fase == 1)
+        if(Greenfoot.mouseClicked(siguiente2))
         {
-            if(principal.getVida() == 0)
-            {
-                showText("", 80, getHeight() - 63);
-                showText("", 165, getHeight() - 63);
-                removeObjects(getObjects(null));
-                fase = 0;
-                gameOver();
-            }
-            else
-            {
-                agregaNectar();
-                frame++;
-            }
+            sonido.play();
+            removeObjects(getObjects(null));
+              nivel1fase2();                  
         }
     }
-
-    public void agregaNectar()
+   public void agregaNectar()
     {
         int n = Greenfoot.getRandomNumber(getWidth()) + 61;
         if(n > getWidth() - 61)
@@ -191,22 +217,23 @@ public class Juego extends World
         }
         if(frame == 100)
         {
-            if(nectar < limiteNectar)
+            if(contNectar < limiteNectar)
             {
                 addObject(new BurbujaNectar(), n, 0);
             }
             else
             {
-                if(nectar == limiteNectar + 4 && principal.getVida() > 0)
+                if(contNectar == limiteNectar + 4 && principal.getVida() > 0)
                 {
                     showText("", 80, getHeight() - 63);
                     showText("", 165, getHeight() - 63);
+                    nectarTotal=principal.getNectar();
                     removeObjects(getObjects(null));
                     fase = 0;
                     ayuda2();
                 }
             }
-            nectar++;
+            contNectar++;
             frame = 0;
         }
     }
