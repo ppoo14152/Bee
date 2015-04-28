@@ -6,7 +6,7 @@ public class Juego extends World
     private int limiteNectar;
     private float frame;
     private Bee principal;
-    private int contNectar;
+    private int contadorNectar;
     private int nectarTotal;
     private int menu; // bandera que indica si estamos en el menu
     private Boton jugar, record, regresar, siguiente, siguiente2, creditos; //Objetos tipo boton del menu
@@ -19,7 +19,7 @@ public class Juego extends World
     {
         super(480, 600, 1);
         frame = 0;
-        contNectar = 0;
+        contadorNectar = 0;
         nectarTotal = 0;
         menu = 0;
         fase = 0;
@@ -113,6 +113,7 @@ public class Juego extends World
     {
         setBackground(getImagen(4));
         addObject(regresar, getWidth() / 2, 500);
+        fase = 0;
     }
     
    public void nivel1()
@@ -134,7 +135,6 @@ public class Juego extends World
     {
         fase = 2;
         setBackground(getImagen(13));
-       
     }
     
    public void menu()
@@ -199,13 +199,13 @@ public class Juego extends World
         {
             sonido.play();
             removeObjects(getObjects(null));
-              nivel1();                  
+            nivel1();                  
         }
         if(Greenfoot.mouseClicked(siguiente2))
         {
             sonido.play();
             removeObjects(getObjects(null));
-              nivel1fase2();                  
+            nivel1fase2();                  
         }
     }
    public void agregaNectar()
@@ -217,13 +217,13 @@ public class Juego extends World
         }
         if(frame == 100)
         {
-            if(contNectar < limiteNectar)
+            if(contadorNectar < limiteNectar)
             {
                 addObject(new BurbujaNectar(), n, 0);
             }
             else
             {
-                if(contNectar == limiteNectar + 4 && principal.getVida() > 0)
+                if(contadorNectar == limiteNectar + 4 && principal.getVida() > 0)
                 {
                     showText("", 80, getHeight() - 63);
                     showText("", 165, getHeight() - 63);
@@ -233,7 +233,7 @@ public class Juego extends World
                     ayuda2();
                 }
             }
-            contNectar++;
+            contadorNectar++;
             frame = 0;
         }
     }

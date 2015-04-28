@@ -1,18 +1,31 @@
 import greenfoot.*;
+import java.util.LinkedList;
 
 public class Bee extends Elemento
 {
     private int frame;
-    private int numNectar;
+    private int numeroNectar;
     private int vida;
     private boolean choque;
+    private LinkedList <GreenfootImage> imagenes;
+    private GreenfootSound get;
+    private GreenfootSound knock;
     
-    public Bee(int numVidas)
+    public Bee(int numeroVidas)
     {
         super();
         frame = 0;
-        numNectar = 0;
-        vida = numVidas;
+        numeroNectar = 0;
+        vida = numeroVidas;
+        get = new GreenfootSound("get.wav");
+        knock = new GreenfootSound("knock.wav");
+        imagenes = new LinkedList();
+        imagenes.add(new GreenfootImage("abeja1.png"));         //0
+        imagenes.add(new GreenfootImage("abeja2.png"));         //1
+        imagenes.add(new GreenfootImage("abeja3.png"));         //2
+        imagenes.add(new GreenfootImage("abeja4.png"));         //3
+        imagenes.add(new GreenfootImage("abejachoque.png"));    //4
+        setImage(getImagen(0));
     }
  
     public void act()
@@ -21,8 +34,13 @@ public class Bee extends Elemento
         animar();
         desplazar();
         setContador();
-        world.showText("x " + numNectar, 80, getAlto() - 63);
+        world.showText("x " + numeroNectar, 80, getAlto() - 63);
         world.showText("x " + vida, 165, getAlto() - 63);
+    }
+    
+    public GreenfootImage getImagen(int n)
+    {
+        return imagenes.get(n);
     }
 
     public void desplazar()
@@ -43,13 +61,13 @@ public class Bee extends Elemento
         {
             switch(frame)
             {
-                case 5: setImage("abeja2.png");
+                case 5: setImage(getImagen(1));
                 break;
-                case 10: setImage("abeja3.png");
+                case 10: setImage(getImagen(2));
                 break;
-                case 15: setImage("abeja4.png");
+                case 15: setImage(getImagen(3));
                 break;
-                case 20: setImage("abeja1.png");
+                case 20: setImage(getImagen(0));
                      frame = 0;
                 break;
             }
@@ -64,7 +82,7 @@ public class Bee extends Elemento
     
     public int getNectar()
     {
-        return numNectar;
+        return numeroNectar;
     }
 
     public void setContador()
@@ -72,9 +90,9 @@ public class Bee extends Elemento
         Actor b = colisionar(BurbujaNectar.class);
         if(b != null)
         {
-            numNectar++;
+            numeroNectar++;
             retirar(b);
-            Greenfoot.playSound("get.wav");
+            get.play();
         }
     }
     
@@ -85,8 +103,8 @@ public class Bee extends Elemento
     
     public void chocar()
     {
-        setImage("abejachoque.png");
-        Greenfoot.playSound("knock.wav");
+        setImage(getImagen(4));
+        knock.play();
         choque = true;
         frame = 0;
     }

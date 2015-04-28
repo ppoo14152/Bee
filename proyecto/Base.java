@@ -2,9 +2,12 @@ import greenfoot.*;
 
 public class Base extends Elemento
 {
+    private GreenfootImage sprite;
+    
     public Base()
     {
         super();
-        setImage("base.png");
+        sprite = new GreenfootImage("base.png");
+        setImage(sprite);
     }
 }

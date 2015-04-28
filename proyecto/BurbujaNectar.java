@@ -3,12 +3,14 @@ import greenfoot.*;
 public class BurbujaNectar extends Elemento
 {
     private int frame;
+    private GreenfootImage sprite;
     
     public BurbujaNectar()
     {
         super();
         frame = 0;
-        setImage("nectar.png");
+        sprite = new GreenfootImage("nectar.png");
+        setImage(sprite);
     }
     
     public void act() 
