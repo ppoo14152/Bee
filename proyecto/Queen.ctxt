@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Queen()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=n
+comment2.target=greenfoot.GreenfootImage\ getImagen(int)
+comment3.params=
+comment3.target=void\ animar()
+numComments=4

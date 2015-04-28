@@ -119,7 +119,7 @@ public class Juego extends World
    public void nivel1()
     {
         fase = 1;
-        limiteNectar = 5;
+        limiteNectar = 1;
         setBackground(getImagen(5));
         addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
         addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
@@ -135,6 +135,9 @@ public class Juego extends World
     {
         fase = 2;
         setBackground(getImagen(13));
+        addObject(new Queen(), getWidth() / 2, getHeight()/2);
+        addObject(new Base(), getWidth() / 2, getHeight() - 47);
+        agregaHueco();
     }
     
    public void menu()
@@ -236,5 +239,18 @@ public class Juego extends World
             contadorNectar++;
             frame = 0;
         }
+    }
+   public void agregaHueco()
+   {
+        addObject(new Hueco(), getWidth() / 2, getHeight()/3);
+        addObject(new Hueco(), getWidth() / 2 + 50, getHeight()/3);
+        addObject(new Hueco(), getWidth() / 2 + 100, getHeight()/3);
+        addObject(new Hueco(), getWidth() / 2 - 50, getHeight()/3);
+        addObject(new Hueco(), getWidth() / 2 - 100, getHeight()/3);
+        
+        addObject(new Hueco(), getWidth() / 2 + 25, getHeight()/3 + 25);
+        addObject(new Hueco(), getWidth() / 2 + 75, getHeight()/3 + 25);
+        addObject(new Hueco(), getWidth() / 2 - 25, getHeight()/3 + 25);
+        addObject(new Hueco(), getWidth() / 2 - 75, getHeight()/3 + 25);
     }
 }
