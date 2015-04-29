@@ -38,9 +38,7 @@ public class Mouse extends Elemento
         jugar = bee.dameJugar();
         record = bee.dameRecord();
         creditos = bee.dameCreditos();
- 
-        if(Greenfoot.mouseMoved(null))
-        {
+        if(Greenfoot.mouseMoved(null)) {
             MouseInfo mouse = Greenfoot.getMouseInfo();
             setLocation(mouse.getX() + 7, mouse.getY() + 5);
         }
@@ -56,36 +54,30 @@ public class Mouse extends Elemento
     public void seleccionBoton()
     {
         Actor bot = getOneIntersectingObject(Boton.class);
-        if(bot != null && getY() < 290 && tocaJ == 0)
-        {
+        if(bot != null && getY() < 290 && tocaJ == 0) {
             sonido.play();
             jugar.setImage(getImagen(4));
             tocaJ = 1;
         }
-        if(bot == null && tocaJ == 1)
-        {
+        if(bot == null && tocaJ == 1) {
             jugar.setImage(getImagen(1));
             tocaJ = 0;
         }
-        if(bot != null && getY() > 340 && getY() < 440 && tocaR == 0)
-        {
+        if(bot != null && getY() > 340 && getY() < 440 && tocaR == 0) {
             sonido.play();
             record.setImage(getImagen(5));
             tocaR = 1;
         }
-        if(bot == null && tocaR == 1)
-        {
+        if(bot == null && tocaR == 1) {
             record.setImage(getImagen(2));
             tocaR = 0;
         }
-        if(bot != null && getY() > 490 && tocaC == 0)
-        {
+        if(bot != null && getY() > 490 && tocaC == 0) {
             sonido.play();
             creditos.setImage(getImagen(6));
             tocaC = 1;
         }
-        if(bot == null && tocaC == 1)
-        {
+        if(bot == null && tocaC == 1) {
             creditos.setImage(getImagen(3));
             tocaC = 0;
         }

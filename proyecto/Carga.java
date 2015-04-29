@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.util.LinkedList;
+
 public class Carga extends Elemento
 {
     private LinkedList <GreenfootImage> imagenes;
@@ -16,19 +17,19 @@ public class Carga extends Elemento
         imagenes.add(new GreenfootImage("carga2.png"));         //2
         imagenes.add(new GreenfootImage("carga3.png"));         //3
         imagenes.add(new GreenfootImage("carga4.png"));         //4
-        imagenes.add(new GreenfootImage("carga5.png"));         //4
-        imagenes.add(new GreenfootImage("carga6.png"));         //4
+        imagenes.add(new GreenfootImage("carga5.png"));         //5
+        imagenes.add(new GreenfootImage("carga6.png"));         //6
         setImage(getImagen(6));
         contador = 6;
         limite = 6;
-        frame=0;
+        frame = 0;
     }
 
     public void act() 
     {
         frame++;
         setImage(getImagen(contador));
-        if(frame > 130 && contador < 6){
+        if(frame > 130 && contador < 6) {
             contador++;
             frame = 0;
         }
@@ -37,7 +38,7 @@ public class Carga extends Elemento
     
     public void setContador()
     {
-        if(contador>0){
+        if(contador>0) {
             contador--;
         }
     }

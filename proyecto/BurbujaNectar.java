@@ -25,8 +25,7 @@ public class BurbujaNectar extends Elemento
     public void mover()
     {
         setLocation(getX(), getY() + 5);
-        if(getY() > getAlto() - 120)
-        {
+        if(getY() > getAlto() - 120) {
             retirar(this);
         }
         frame = 0;
@@ -35,8 +34,7 @@ public class BurbujaNectar extends Elemento
     public void tocar()
     {
         int n = Greenfoot.getRandomNumber(getAncho()) + 61;
-        if(n > getAncho() - 61)
-        {
+        if(n > getAncho() - 61) {
             n = getAncho() - 61;
         }
         setLocation(n, getY());

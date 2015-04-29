@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Enemigo()
+comment0.text=\r\n\ Act\ -\ hace\ lo\ que\ Enemigo\ quiere\ hacer.\ Este\ m\u00E9todo\ se\ llama\ "cuando\ quiera"\ o\ whenever\r\n\ los\ botones\ 'Actuar\ or\ 'Ejecutar'\ son\ presionados\ en\ el\ entorno.\r\n
+comment1.params=
+comment1.target=void\ act()
+numComments=2

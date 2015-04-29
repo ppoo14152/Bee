@@ -45,22 +45,18 @@ public class Bee extends Elemento
 
     public void desplazar()
     {
-        if((Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) && getX() < getAncho() - BORDE)
-        {
+        if((Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) && getX() < getAncho() - BORDE) {
             move(PASOS);
         }
-        if((Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) && getX() > BORDE)
-        {
+        if((Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) && getX() > BORDE) {
             move(-PASOS);
         }
     }
     
     public void animar()
     {
-        if(choque == false)
-        {
-            switch(frame)
-            {
+        if(choque == false) {
+            switch(frame) {
                 case 5: setImage(getImagen(1));
                 break;
                 case 10: setImage(getImagen(2));
@@ -72,8 +68,7 @@ public class Bee extends Elemento
                 break;
             }
         }
-        if(frame == 25)
-        {
+        if(frame == 25) {
             choque = false;
             frame = 0;
         }
@@ -88,8 +83,7 @@ public class Bee extends Elemento
     public void setContador()
     {
         Actor b = colisionar(BurbujaNectar.class);
-        if(b != null)
-        {
+        if(b != null) {
             numeroNectar++;
             retirar(b);
             get.play();
@@ -103,7 +97,7 @@ public class Bee extends Elemento
     
     public void setVida(int numVidas)
     {
-        vida=numVidas;
+        vida = numVidas;
     }
     
     public void chocar()

@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.LinkedList;
 
 public class Elemento extends Actor
 {
@@ -14,6 +15,12 @@ public class Elemento extends Actor
     { 
         World world = getWorld();
         world.removeObject(a);
+    }
+    
+    public void retirarLista(LinkedList l)
+    { 
+        World world = getWorld();
+        world.removeObjects(l);
     }
     
     public int getAncho()
@@ -32,4 +39,5 @@ public class Elemento extends Actor
     {
         return getOneObjectAtOffset(0, 0, c);
     }
+    
 }

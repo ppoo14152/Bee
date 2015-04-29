@@ -1,30 +1,61 @@
 import greenfoot.*;
+import java.util.LinkedList;
+
 public class Hueco extends Elemento
 {
-    private GreenfootImage sprite;
+    private LinkedList <GreenfootImage> imagenes;
     private Juego mundo;
     private Carga carga;
+    private int tipo;
 
     public Hueco()
     {
         super();
-        sprite = new GreenfootImage("huecopanel.png");
-        setImage(sprite);        
+        tipo = 0;
+        imagenes = new LinkedList();
+        imagenes.add(new GreenfootImage("huecopanel.png")); //0
+        imagenes.add(new GreenfootImage("panel1.png"));     //1
+        imagenes.add(new GreenfootImage("panel.png"));      //2
+        setImage(getImagen(0));
     }
 
     public void act() 
     {
-        int c;
-        if(Greenfoot.mouseClicked(this)){
+        cargar();
+        contactoEnemigo();
+    }    
+    
+    public void cargar()
+    {
+        if(Greenfoot.mouseClicked(this)) {
             carga = mundo.dameCarga();
-           
-            if(carga.getCotador()>0){
+            if(carga.getCotador() > 0 && tipo < 2) {
                 carga.setContador();
-                mundo.addObject(new Panel1(), this.getX(),this.getY());
-                mundo.removeObject(this);
+                if(tipo == 0) {
+                    setImage(getImagen(tipo + 1));
+                }
+                if(tipo == 1) {
+                    setImage(getImagen(tipo + 1));
+                }
+                tipo++;
             }
         }
-    }    
+    }
+    
+    public void contactoEnemigo()
+    {
+        Actor b = colisionar(Larva.class);
+        if(b != null && tipo > 0) {
+            retirar(b);
+            tipo--;
+            setImage(getImagen(tipo));
+        }
+    }
+    
+    public GreenfootImage getImagen(int n)
+    {
+        return imagenes.get(n);
+    }
     
     public void addedToWorld(World world) 
     {

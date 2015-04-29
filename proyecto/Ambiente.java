@@ -26,11 +26,9 @@ public class Ambiente extends Elemento
         if(frame == 2)
         {
             setLocation(getX(), getY() + PASOS);
-            if(getY() > getAlto() - 10)
-            {
+            if(getY() > getAlto() - 10) {
                 tipo = Greenfoot.getRandomNumber(8);
-                switch(tipo)
-                {
+                switch(tipo) {
                     case 0: case 1: case 6: case 7: case 8: setImage(getImagen(0));;
                         setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
                     break;

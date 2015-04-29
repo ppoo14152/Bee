@@ -20,8 +20,7 @@ public class Aracnido extends Elemento
     
     public void act() 
     {
-        if(frame %2 == 0)
-        {
+        if(frame %2 == 0) {
             tocar();
             mover();
             come();
@@ -37,22 +36,18 @@ public class Aracnido extends Elemento
     public void mover()
     {
         setLocation(getX(), getY() + PASOS);
-        if(frame == 10)
-        {
+        if(frame == 10) {
             frame = 0;
-            if(tipo == 0)
-            {
+            if(tipo == 0) {
                 tipo = 1;
                 setImage(getImagen(1));
             }
-            else
-            {
+            else {
                 tipo = 0;
                 setImage(getImagen(0));
             }
         }
-        if(getY() > getAlto() - 10)
-        {
+        if(getY() > getAlto() - 10) {
             setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
         }
     }
@@ -60,8 +55,7 @@ public class Aracnido extends Elemento
     public void come()
     {
         Actor b = getOneObjectAtOffset(0, 75, Bee.class);
-        if(b != null)
-        {
+        if(b != null) {
             ((Bee) b).setVida();
             ((Bee) b).chocar();
             setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
@@ -71,8 +65,7 @@ public class Aracnido extends Elemento
     public void tocar()
     {
         Actor b = getOneObjectAtOffset(0, 75, BurbujaNectar.class);
-        if(b != null)
-        {
+        if(b != null) {
             ((BurbujaNectar) b).tocar();
         }
     }
