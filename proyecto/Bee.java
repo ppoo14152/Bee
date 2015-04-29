@@ -11,12 +11,12 @@ public class Bee extends Elemento
     private GreenfootSound get;
     private GreenfootSound knock;
     
-    public Bee(int numeroVidas)
+    public Bee()
     {
         super();
         frame = 0;
         numeroNectar = 0;
-        vida = numeroVidas;
+        vida = 0;
         get = new GreenfootSound("get.wav");
         knock = new GreenfootSound("knock.wav");
         imagenes = new LinkedList();
@@ -99,6 +99,11 @@ public class Bee extends Elemento
     public void setVida()
     {
         vida--;
+    }
+    
+    public void setVida(int numVidas)
+    {
+        vida=numVidas;
     }
     
     public void chocar()

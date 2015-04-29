@@ -1,8 +1,10 @@
 #BlueJ class context
-comment0.params=numeroVidas
-comment0.target=Bee(int)
+comment0.params=
+comment0.target=Bee()
 comment1.params=
 comment1.target=void\ act()
+comment10.params=
+comment10.target=int\ getVida()
 comment2.params=n
 comment2.target=greenfoot.GreenfootImage\ getImagen(int)
 comment3.params=
@@ -15,8 +17,8 @@ comment6.params=
 comment6.target=void\ setContador()
 comment7.params=
 comment7.target=void\ setVida()
-comment8.params=
-comment8.target=void\ chocar()
+comment8.params=numVidas
+comment8.target=void\ setVida(int)
 comment9.params=
-comment9.target=int\ getVida()
-numComments=10
+comment9.target=void\ chocar()
+numComments=11

@@ -1,26 +1,20 @@
 import greenfoot.*;
-public class Hueco extends Elemento
-{
-    private GreenfootImage sprite;
+public class Panel1 extends Elemento
+{  
     private Juego mundo;
     private Carga carga;
-
-    public Hueco()
+    public Panel1()
     {
         super();
-        sprite = new GreenfootImage("huecopanel.png");
-        setImage(sprite);        
     }
-
+    
     public void act() 
     {
-        int c;
         if(Greenfoot.mouseClicked(this)){
             carga = mundo.dameCarga();
-           
             if(carga.getCotador()>0){
                 carga.setContador();
-                mundo.addObject(new Panel1(), this.getX(),this.getY());
+                mundo.addObject(new Panel2(), this.getX(),this.getY());
                 mundo.removeObject(this);
             }
         }
@@ -30,5 +24,5 @@ public class Hueco extends Elemento
     {
         mundo = (Juego) world;        
     }
+    
 }
-
