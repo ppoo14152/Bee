@@ -135,7 +135,7 @@ public class Juego extends World
     {
         fase = 2;
         setBackground(getImagen(13));
-        addObject(new Queen(), getWidth() / 2, getHeight()/2);
+        addObject(new Queen(), getWidth() / 2, getHeight()/5 * 2);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
         agregaHueco();
     }
@@ -202,7 +202,8 @@ public class Juego extends World
         {
             sonido.play();
             removeObjects(getObjects(null));
-            nivel1();                  
+           // nivel1(); // utilizado para abrir fase 2
+            nivel1fase2();                  
         }
         if(Greenfoot.mouseClicked(siguiente2))
         {
@@ -211,6 +212,7 @@ public class Juego extends World
             nivel1fase2();                  
         }
     }
+    
    public void agregaNectar()
     {
         int n = Greenfoot.getRandomNumber(getWidth()) + 61;
@@ -242,15 +244,39 @@ public class Juego extends World
     }
    public void agregaHueco()
    {
-        addObject(new Hueco(), getWidth() / 2, getHeight()/3);
-        addObject(new Hueco(), getWidth() / 2 + 50, getHeight()/3);
-        addObject(new Hueco(), getWidth() / 2 + 100, getHeight()/3);
-        addObject(new Hueco(), getWidth() / 2 - 50, getHeight()/3);
-        addObject(new Hueco(), getWidth() / 2 - 100, getHeight()/3);
+       int x = getWidth()/2 - 100;
+       int y = getHeight() / 5 +30;
+       int aumento = 50,i;
+       
+       for(i=0; i < 5; i++){
+        addObject(new Hueco(), x , y);
+        x+= aumento;
+       }
+      
+       x = getWidth()/2 - 100;
+       y = getHeight()/2 +40;
+       for(i=0; i < 5; i++){
+        addObject(new Hueco(), x , y);
+        x+= aumento;
+       }
+       
+       x = getWidth()/2 - 75;
+       y = getHeight()/5 - 15;
+       for(i=0; i < 4; i++){
+        addObject(new Hueco(), x , y);
+        x+= aumento;
+       } 
+       
+       addObject(new Hueco(),getWidth()/2 - 75, getHeight()/5 + 20 + aumento);
+       
+       /*
+        x = getWidth()/2 - 75;
+        y = getHeight() /2 + 85;
         
-        addObject(new Hueco(), getWidth() / 2 + 25, getHeight()/3 + 25);
-        addObject(new Hueco(), getWidth() / 2 + 75, getHeight()/3 + 25);
-        addObject(new Hueco(), getWidth() / 2 - 25, getHeight()/3 + 25);
-        addObject(new Hueco(), getWidth() / 2 - 75, getHeight()/3 + 25);
+        for(i=0; i < 4; i++){
+        addObject(new Hueco(), x , y);
+        x+= aumento;
+       } 
+       */
     }
 }
