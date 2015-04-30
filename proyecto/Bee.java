@@ -98,6 +98,11 @@ public class Bee extends Elemento
     {
         return numeroNectar;
     }
+    
+    public void setNectar( int nectar)
+    {
+       numeroNectar = nectar;
+    }
 
     public void setContador()
     {

@@ -40,6 +40,7 @@ public class Carga extends Elemento
     {
         if(contador > 0) {
             contador--;
+            frame = 0;
         }
     }
 

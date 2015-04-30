@@ -1,6 +1,5 @@
 import greenfoot.*;
 import java.util.LinkedList;
-
 public class Queen extends Elemento
 {
     private int frame;
@@ -8,8 +7,8 @@ public class Queen extends Elemento
     private int choque;
     private int puntaje;
     private LinkedList <GreenfootImage> imagenes;
-    private GreenfootSound knock;
     private Juego mundo;
+    private GreenfootSound knock;
     
     public Queen()
     {

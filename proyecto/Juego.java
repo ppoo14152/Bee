@@ -17,6 +17,7 @@ public class Juego extends World
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound sonido;
     private GreenfootSound knock;
+    private MouseInfo info;
     
     public final int BORDE = 61;
     
@@ -138,13 +139,16 @@ public class Juego extends World
         addObject(regresar, getWidth() / 2, 500);
         contadorNectar = 0;
         nectarTotal = 0;
+        frame = 0;
     }
     
     public void nivel1()
     {
         fase = 1;
         limiteNectar = 3;
+        contadorNectar = 0;
         setBackground(getImagen(5));
+        principal.setNectar(nectarTotal);
         principal.setVida(3);
         principal.setPuntaje(puntajeTotal);
         addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
@@ -213,9 +217,18 @@ public class Juego extends World
                 gameOver();
             }
             else {
+                
+                if(Greenfoot.mouseClicked(null)){
+                    info = Greenfoot.getMouseInfo();
+                    if(info.getButton() == 3 && nectarTotal > 0){
+                        addObject(new Explosion(),Greenfoot.getMouseInfo().getX(),Greenfoot.getMouseInfo().getY());
+                        nectarTotal--;
+                    }
+                }
                 agregarEnemigo();
                 frame++;
             }
+            reyna.setBomba(nectarTotal);
         }
     }
     
@@ -258,8 +271,8 @@ public class Juego extends World
         if(Greenfoot.mouseClicked(siguiente)) {
             sonido.play();
             removeObjects(getObjects(null));
-            //nivel1(); // utilizado para abrir fase 2
-            nivel1fase2();                  
+            nivel1(); // utilizado para abrir fase 2
+            //nivel1fase2();                  
         }
         if(Greenfoot.mouseClicked(siguiente2)) {
             sonido.play();
