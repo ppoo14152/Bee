@@ -119,14 +119,14 @@ public class Juego extends World
     public void record()
     {
         setBackground(getImagen(2));
-        addObject(new ScoreBoard(480, 400), getWidth() / 2, getHeight() / 2);
-        addObject(regresar, getWidth() / 2, 500);
+        addObject(new ScoreBoard(480, 350), getWidth() / 2, getHeight() / 2);
+        addObject(regresar, getWidth() / 2, 540);
     }
     
     public void creditos()
     {
         setBackground(getImagen(3));
-        addObject(regresar, getWidth() / 2, 500);
+        addObject(regresar, getWidth() / 2, 540);
     }
     
     public void gameOver()
@@ -138,7 +138,7 @@ public class Juego extends World
         showText("", 250, getHeight() - 60);
         fase = 0;
         setBackground(getImagen(4));
-        addObject(regresar, getWidth() / 2, 500);
+        addObject(regresar, getWidth() / 2, 540);
         contadorNectar = 0;
         nectarTotal = 0;
         frame = 0;

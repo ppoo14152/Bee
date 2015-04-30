@@ -52,19 +52,20 @@ public class ScoreBoard extends Actor
     private void drawScores()
     {
         // 50 pixels is the max height of the user image
-        final int pixelsPerUser = 50 + 2*GAP;
+        final int pixelsPerUser = 50 + 2 * GAP;
         // Calculate how many users we have room for:
-        final int numUsers = ((getImage().getHeight() - (HEADER_TEXT_HEIGHT + 10)) / pixelsPerUser);
+        final int numUsers = (getImage().getHeight()/* - (HEADER_TEXT_HEIGHT + 10))*/ / pixelsPerUser);
         final int topSpace = getImage().getHeight() - (numUsers * pixelsPerUser) - GAP;
         
         getImage().setColor(BACKGROUND_COLOR);
         getImage().fill();
 
-        drawString("All Players", 100, topSpace - HEADER_TEXT_HEIGHT - 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);
-        drawString("Near You", 100 + getImage().getWidth() / 2, topSpace - HEADER_TEXT_HEIGHT - 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);        
-        
-        drawUserPanel(GAP, topSpace, (getImage().getWidth() / 2) - GAP, topSpace + numUsers * pixelsPerUser, UserInfo.getTop(numUsers));
-        drawUserPanel(GAP + getImage().getWidth() / 2, topSpace, getImage().getWidth() - GAP, topSpace + numUsers * pixelsPerUser, UserInfo.getNearby(numUsers));
+        //drawString("All Players", 100, topSpace - HEADER_TEXT_HEIGHT - 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+        //drawString("Near You", 100 + getImage().getWidth() / 2, topSpace - HEADER_TEXT_HEIGHT - 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);        
+        drawUserPanel(GAP + 45, topSpace, getImage().getWidth() - GAP, topSpace + numUsers * pixelsPerUser, UserInfo.getTop(numUsers));
+        //drawUserPanel(GAP, topSpace, (getImage().getWidth() / 2) - GAP, topSpace + numUsers * pixelsPerUser, UserInfo.getTop(numUsers));
+        //drawUserPanel(GAP, topSpace, (getImage().getWidth() / 2) - GAP, topSpace + numUsers * pixelsPerUser, UserInfo.getTop(numUsers));
+        //drawUserPanel(GAP + getImage().getWidth() / 2, topSpace, getImage().getWidth() - GAP, topSpace + numUsers * pixelsPerUser, UserInfo.getNearby(numUsers));
     }
     
     private void drawUserPanel(int left, int top, int right, int bottom, List users)
