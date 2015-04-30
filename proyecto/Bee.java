@@ -133,6 +133,11 @@ public class Bee extends Elemento
         frame = 0;
     }
     
+    public void setImagen(int n)
+    {
+        setImage(getImagen(n));
+    }
+    
     public int getVida()
     {
         return vida;

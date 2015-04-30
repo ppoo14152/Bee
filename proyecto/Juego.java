@@ -155,6 +155,7 @@ public class Juego extends World
         principal.setNectar(nectarTotal);
         principal.setVida(3);
         principal.setPuntaje(puntajeTotal);
+        principal.setImagen(1);
         addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
         addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
         addObject(new Ambiente(), (getWidth() * 3) / 4, ((getHeight() - 60) * 3) / 5);
@@ -172,6 +173,7 @@ public class Juego extends World
         reyna.setBomba(nectarTotal);
         reyna.setPuntaje(puntajeTotal);
         reyna.setTiempo(100);
+        reyna.setImagen(1);
         setBackground(getImagen(13));
         addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
@@ -245,7 +247,7 @@ public class Juego extends World
         if(n == 0 || n == 480) {
             o = Greenfoot.getRandomNumber(7) * 84;
         }
-        if(frame == 150) {
+        if(frame == 120) {
             addObject(new Larva(tipo), n, o);            
             frame = 0;
         }           

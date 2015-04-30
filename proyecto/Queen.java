@@ -71,7 +71,7 @@ public class Queen extends Elemento
         world.showText("x " + (1 - choque), 152, getAlto() - 48);
         world.showText("Puntaje", 400, getAlto() - 58);
         world.showText("" + puntaje, 400, getAlto() - 38);
-        world.showText("Tiempo "+tiempo,250, getAlto() - 60);
+        world.showText("Tiempo " + tiempo,250, getAlto() - 60);
     }
     
     public void timer()
@@ -95,6 +95,11 @@ public class Queen extends Elemento
     {
         setImage(getImagen(4));
         choque = 1;
+    }
+    
+     public void setImagen(int n)
+    {
+        setImage(getImagen(n));
     }
     
     public GreenfootImage getImagen(int n)
