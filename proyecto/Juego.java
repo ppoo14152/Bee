@@ -118,7 +118,8 @@ public class Juego extends World
     
     public void record()
     {
-        setBackground(getImagen(2));      
+        setBackground(getImagen(2));
+        addObject(new ScoreBoard(480, 400), getWidth() / 2, getHeight() / 2);
         addObject(regresar, getWidth() / 2, 500);
     }
     
@@ -141,7 +142,8 @@ public class Juego extends World
         contadorNectar = 0;
         nectarTotal = 0;
         frame = 0;
-        puntajeTotal=0;
+        guardaRecord();
+        puntajeTotal = 0;
     }
     
     public void nivel1()
@@ -274,8 +276,7 @@ public class Juego extends World
         if(Greenfoot.mouseClicked(siguiente)) {
             sonido.play();
             removeObjects(getObjects(null));
-            nivel1(); // utilizado para abrir fase 2
-            //nivel1fase2();                  
+            nivel1();                
         }
         if(Greenfoot.mouseClicked(siguiente2)) {
             sonido.play();
@@ -309,6 +310,17 @@ public class Juego extends World
             }
             contadorNectar++;
             frame = 0;
+        }
+    }
+    
+    public void guardaRecord()
+    {
+        if(UserInfo.isStorageAvailable()) {
+            UserInfo myInfo = UserInfo.getMyInfo();
+            if (puntajeTotal > myInfo.getScore()) {
+                myInfo.setScore(puntajeTotal);
+                myInfo.store();
+            }
         }
     }
     
