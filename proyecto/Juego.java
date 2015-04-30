@@ -134,6 +134,7 @@ public class Juego extends World
         showText("", 152, getHeight() - 48);
         showText("", 400, getHeight() - 58);
         showText("", 400, getHeight() - 38);
+        showText("", 250, getHeight() - 60);
         fase = 0;
         setBackground(getImagen(4));
         addObject(regresar, getWidth() / 2, 500);
@@ -146,7 +147,7 @@ public class Juego extends World
     public void nivel1()
     {
         fase = 1;
-        limiteNectar = 3;
+        limiteNectar = 10;
         contadorNectar = 0;
         setBackground(getImagen(5));
         principal.setNectar(nectarTotal);
@@ -168,10 +169,11 @@ public class Juego extends World
         reyna.setChoque();
         reyna.setBomba(nectarTotal);
         reyna.setPuntaje(puntajeTotal);
+        reyna.setTiempo(100);
         setBackground(getImagen(13));
         addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
-        addObject(carga, getWidth() / 2 + 10, getHeight() - 47);
+        addObject(carga, getWidth() / 2 + 10, getHeight() - 35);
         agregaHueco();
     }
     

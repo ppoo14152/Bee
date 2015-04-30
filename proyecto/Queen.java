@@ -9,6 +9,8 @@ public class Queen extends Elemento
     private LinkedList <GreenfootImage> imagenes;
     private Juego mundo;
     private GreenfootSound knock;
+    private SimpleTimer timer = new SimpleTimer();
+    private int tiempo;
     
     public Queen()
     {
@@ -17,6 +19,7 @@ public class Queen extends Elemento
         frame = 0;
         choque = 0;
         puntaje = 0;
+        tiempo = 10;
         knock = new GreenfootSound("knock.wav");
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("reyna1.png"));         //0
@@ -30,6 +33,7 @@ public class Queen extends Elemento
     public void act() 
     {
         animar();
+        timer();
         contactoEnemigo();
         muestraContador();
     }
@@ -54,6 +58,12 @@ public class Queen extends Elemento
         bombaNectar = n;
     }
     
+    public void setTiempo(int n)
+    {
+        tiempo = n;
+    }
+    
+    
     public void muestraContador()
     {
         World world = getWorld();
@@ -61,12 +71,22 @@ public class Queen extends Elemento
         world.showText("x " + (1 - choque), 152, getAlto() - 48);
         world.showText("Puntaje", 400, getAlto() - 58);
         world.showText("" + puntaje, 400, getAlto() - 38);
+        world.showText("Tiempo "+tiempo,250, getAlto() - 60);
+    }
+    
+    public void timer()
+    {
+        if (timer.millisElapsed() > 1000 && tiempo >0)
+      {
+          tiempo--;
+          timer.mark(); 
+       }
     }
     
     public void contactoEnemigo()
     {
         Actor b = colisionar(Larva.class);
-        if(b != null) {
+        if(b != null || tiempo == 0) {
             chocar();
         }
     }
