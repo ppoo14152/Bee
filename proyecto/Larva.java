@@ -15,7 +15,6 @@ public class Larva extends Enemigo
     private LinkedList <GreenfootImage> imagenes;
     private int frame;
     
-    
     public Larva(int sprite)
     {
         super();
@@ -35,7 +34,6 @@ public class Larva extends Enemigo
     {
         turnTowards(getAncho() / 2, getAlto() / 5 * 2);
         mover();
-        
     }    
     
     public void mover()

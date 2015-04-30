@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Polilla()
+comment0.text=\r\n\ Act\ -\ hace\ lo\ que\ Polilla\ quiere\ hacer.\ Este\ m\u00E9todo\ se\ llama\ "cuando\ quiera"\ o\ whenever\r\n\ los\ botones\ 'Actuar\ or\ 'Ejecutar'\ son\ presionados\ en\ el\ entorno.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=n
+comment2.target=greenfoot.GreenfootImage\ getImagen(int)
+comment3.params=
+comment3.target=void\ mover()
+numComments=4

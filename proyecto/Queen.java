@@ -4,16 +4,20 @@ import java.util.LinkedList;
 public class Queen extends Elemento
 {
     private int frame;
+    private int bombaNectar;
+    private int choque;
+    private int puntaje;
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound knock;
-    private int choque;
     private Juego mundo;
     
     public Queen()
     {
         super();
+        bombaNectar = 0;
         frame = 0;
         choque = 0;
+        puntaje = 0;
         knock = new GreenfootSound("knock.wav");
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("reyna1.png"));         //0
@@ -28,6 +32,36 @@ public class Queen extends Elemento
     {
         animar();
         contactoEnemigo();
+        muestraContador();
+    }
+    
+    public void setPuntaje(int puntos)
+    {
+        puntaje = puntos;
+    }
+    
+    public void aumentaPuntaje()
+    {
+        puntaje = puntaje + 10;
+    }
+    
+    public int getPuntaje()
+    {
+        return puntaje;
+    }
+    
+    public void setBomba(int n)
+    {
+        bombaNectar = n;
+    }
+    
+    public void muestraContador()
+    {
+        World world = getWorld();
+        world.showText("x " + bombaNectar, 80, getAlto() - 48);
+        world.showText("x " + (1 - choque), 152, getAlto() - 48);
+        world.showText("Puntaje", 400, getAlto() - 58);
+        world.showText("" + puntaje, 400, getAlto() - 38);
     }
     
     public void contactoEnemigo()
@@ -51,21 +85,21 @@ public class Queen extends Elemento
     
     public void animar()
     {     
-            switch(frame) {
-                case 10: setImage(getImagen(1));
-                break;
-                case 20: setImage(getImagen(2));
-                break;
-                case 30: setImage(getImagen(3));
-                break;
-                case 40: setImage(getImagen(2));
-                break;
-                case 50: setImage(getImagen(1));
-                break;                
-                case 60: setImage(getImagen(0));
-                         frame = 0;
-                         break;
-            }
+        switch(frame) {
+            case 10: setImage(getImagen(1));
+            break;
+            case 20: setImage(getImagen(2));
+            break;
+            case 30: setImage(getImagen(3));
+            break;
+            case 40: setImage(getImagen(2));
+            break;
+            case 50: setImage(getImagen(1));
+            break;                
+            case 60: setImage(getImagen(0));
+                     frame = 0;
+            break;
+        }
         frame++;
     }
     
@@ -78,6 +112,7 @@ public class Queen extends Elemento
     {
        return choque;        
     }
+    
      public void setChoque() 
     {
        choque = 0;        

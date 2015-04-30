@@ -28,7 +28,7 @@ public class Hueco extends Elemento
     public void cargar()
     {
         if(Greenfoot.mouseClicked(this)) {
-            carga = mundo.dameCarga();
+            carga = mundo.getCarga();
             if(carga.getCotador() > 0 && tipo < 2) {
                 carga.setContador();
                 if(tipo == 0) {
@@ -47,6 +47,8 @@ public class Hueco extends Elemento
         Actor b = colisionar(Larva.class);
         if(b != null && tipo > 0) {
             retirar(b);
+            b = mundo.getReyna();
+            ((Queen)b).aumentaPuntaje();
             tipo--;
             setImage(getImagen(tipo));
         }

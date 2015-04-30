@@ -6,6 +6,7 @@ public class Bee extends Elemento
     private int frame;
     private int numeroNectar;
     private int vida;
+    private int puntaje;
     private boolean choque;
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound get;
@@ -17,6 +18,7 @@ public class Bee extends Elemento
         frame = 0;
         numeroNectar = 0;
         vida = 0;
+        puntaje = 0;
         get = new GreenfootSound("get.wav");
         knock = new GreenfootSound("knock.wav");
         imagenes = new LinkedList();
@@ -30,12 +32,29 @@ public class Bee extends Elemento
  
     public void act()
     {
-        World world = getWorld();
         animar();
         desplazar();
         setContador();
-        world.showText("x " + numeroNectar, 80, getAlto() - 63);
-        world.showText("x " + vida, 165, getAlto() - 63);
+        muestraContador();
+    }
+    
+    public void setPuntaje(int puntos)
+    {
+        puntaje = puntos;
+    }
+    
+    public int getPuntaje()
+    {
+        return puntaje;
+    }
+    
+    public void muestraContador()
+    {
+        World world = getWorld();
+        world.showText("x " + numeroNectar, 80, getAlto() - 48);
+        world.showText("x " + vida, 152, getAlto() - 48);
+        world.showText("Puntaje", 400, getAlto() - 58);
+        world.showText("" + puntaje, 400, getAlto() - 38);
     }
     
     public GreenfootImage getImagen(int n)
@@ -86,6 +105,7 @@ public class Bee extends Elemento
         if(b != null) {
             numeroNectar++;
             retirar(b);
+            puntaje = puntaje + 10;
             get.play();
         }
     }

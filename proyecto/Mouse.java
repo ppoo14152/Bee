@@ -35,9 +35,9 @@ public class Mouse extends Elemento
     
     public void act()
     {
-        jugar = bee.dameJugar();
-        record = bee.dameRecord();
-        creditos = bee.dameCreditos();
+        jugar = bee.getJugar();
+        record = bee.getRecord();
+        creditos = bee.getCreditos();
         if(Greenfoot.mouseMoved(null)) {
             MouseInfo mouse = Greenfoot.getMouseInfo();
             setLocation(mouse.getX() + 7, mouse.getY() + 5);

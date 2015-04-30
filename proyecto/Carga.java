@@ -29,7 +29,7 @@ public class Carga extends Elemento
     {
         frame++;
         setImage(getImagen(contador));
-        if(frame > 130 && contador < 6) {
+        if(frame > 100 && contador < 6) {
             contador++;
             frame = 0;
         }
@@ -38,7 +38,7 @@ public class Carga extends Elemento
     
     public void setContador()
     {
-        if(contador>0) {
+        if(contador > 0) {
             contador--;
         }
     }

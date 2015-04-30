@@ -4,17 +4,21 @@ import java.util.LinkedList;
 public class Juego extends World
 {
     private int limiteNectar;
+    private int contadorNectar;
+    private int nectarTotal;
+    private int fase;
+    private int puntajeTotal;
     private float frame;
     private Bee principal;
     private Queen reyna;
-    private int contadorNectar;
-    private int nectarTotal;
     private Boton jugar, record, regresar, siguiente, siguiente2, creditos; //Objetos tipo boton del menu
-    private int fase;
     private Mouse mouse;
     private Carga carga;
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound sonido;
+    private GreenfootSound knock;
+    
+    public final int BORDE = 61;
     
     public Juego()
     {
@@ -23,7 +27,9 @@ public class Juego extends World
         contadorNectar = 0;
         nectarTotal = 0;
         fase = 0;
+        puntajeTotal = 0;
         sonido = new GreenfootSound("click.wav");
+        knock = new GreenfootSound("knock.wav");
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("ayuda.png"));         //0
         imagenes.add(new GreenfootImage("ayuda2.png"));        //1
@@ -57,39 +63,44 @@ public class Juego extends World
         return imagenes.get(n);
     }
     
-    public Boton dameJugar()
+    public Boton getJugar()
     {
         return jugar;
     }
      
-    public Boton dameRecord()
+    public Boton getRecord()
     {
         return record;
     }
     
-    public Boton dameRegresar()
+    public Boton getRegresar()
     {
         return regresar;
     }
     
-    public Boton dameSiguiente()
+    public Boton getSiguiente()
     {
         return siguiente;
     }
     
-    public Boton dameSiguiente2()
+    public Boton getSiguiente2()
     {
         return siguiente2;
     }
     
-    public Boton dameCreditos()
+    public Boton getCreditos()
     {
         return creditos;
     }
     
-    public Carga dameCarga()
+    public Carga getCarga()
     {
         return carga;
+    }
+    
+    public Queen getReyna()
+    {
+        return reyna;
     }
     
     public void ayuda1()
@@ -118,8 +129,10 @@ public class Juego extends World
     
     public void gameOver()
     {
-        showText("", 80, getHeight() - 63);
-        showText("", 165, getHeight() - 63);
+        showText("", 80, getHeight() - 48);
+        showText("", 152, getHeight() - 48);
+        showText("", 400, getHeight() - 58);
+        showText("", 400, getHeight() - 38);
         fase = 0;
         setBackground(getImagen(4));
         addObject(regresar, getWidth() / 2, 500);
@@ -133,6 +146,7 @@ public class Juego extends World
         limiteNectar = 3;
         setBackground(getImagen(5));
         principal.setVida(3);
+        principal.setPuntaje(puntajeTotal);
         addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
         addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
         addObject(new Ambiente(), (getWidth() * 3) / 4, ((getHeight() - 60) * 3) / 5);
@@ -147,10 +161,12 @@ public class Juego extends World
     {
         fase = 2;
         reyna.setChoque();
+        reyna.setBomba(nectarTotal);
+        reyna.setPuntaje(puntajeTotal);
         setBackground(getImagen(13));
         addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
-        addObject(carga, getWidth() / 2, getHeight() - 47);
+        addObject(carga, getWidth() / 2 + 10, getHeight() - 47);
         agregaHueco();
     }
     
@@ -176,6 +192,7 @@ public class Juego extends World
         if(fase == 1)
         {
             if(principal.getVida() == 0) {
+                puntajeTotal = puntajeTotal + principal.getPuntaje();
                 removeObjects(getObjects(null));
                 gameOver();
             }
@@ -189,7 +206,9 @@ public class Juego extends World
     public void controlEnemigo()
     {
         if(fase == 2) {
-             if(reyna.getChoque() == 1) {
+            if(reyna.getChoque() == 1) {
+                knock.play();
+                puntajeTotal = puntajeTotal + reyna.getPuntaje();
                 removeObjects(getObjects(null));
                 gameOver();
             }
@@ -202,12 +221,14 @@ public class Juego extends World
     
     public void agregarEnemigo()
     {
-        int n = Greenfoot.getRandomNumber(getWidth()) + 61;
-        if(n > getWidth() - 61) {
-            n = getWidth() - 61;
+        int n = Greenfoot.getRandomNumber(7) * 80;
+        int o = 0;
+        int tipo = Greenfoot.getRandomNumber(2);
+        if(n == 0 || n == 480) {
+            o = Greenfoot.getRandomNumber(7) * 84;
         }
         if(frame == 150) {
-            addObject(new Larva(0), n, 0);            
+            addObject(new Larva(tipo), n, o);            
             frame = 0;
         }           
     }
@@ -249,9 +270,9 @@ public class Juego extends World
     
     public void agregaNectar()
     {
-        int n = Greenfoot.getRandomNumber(getWidth()) + 61;
-        if(n > getWidth() - 61) {
-            n = getWidth() - 61;
+        int n = Greenfoot.getRandomNumber(getWidth()) + BORDE;
+        if(n > getWidth() - BORDE) {
+            n = getWidth() - BORDE;
         }
         if(frame == 100) {
             if(contadorNectar < limiteNectar) {
@@ -259,9 +280,12 @@ public class Juego extends World
             }
             else {
                 if(contadorNectar == limiteNectar + 4 && principal.getVida() > 0) {
-                    showText("", 80, getHeight() - 63);
-                    showText("", 165, getHeight() - 63);
+                    showText("", 80, getHeight() - 48);
+                    showText("", 152, getHeight() - 48);
+                    showText("", 400, getHeight() - 58);
+                    showText("", 400, getHeight() - 38);
                     nectarTotal = principal.getNectar();
+                    puntajeTotal = puntajeTotal + principal.getPuntaje();
                     removeObjects(getObjects(null));
                     fase = 0;
                     ayuda2();
@@ -297,19 +321,19 @@ public class Juego extends World
             x += aumento;
         } 
        
-        addObject(new Hueco(),getWidth() / 2 - 75, getHeight() / 5 + 25 + aumento);
-        addObject(new Hueco(),getWidth() / 2 - 75, getHeight() / 5 + 115 + aumento);
-        addObject(new Hueco(),getWidth() / 2 - 125, getHeight() / 5 + 25 + aumento);
-        addObject(new Hueco(),getWidth() / 2 - 125, getHeight() / 5 + 115 + aumento);
-        addObject(new Hueco(),getWidth() / 2 + 125, getHeight() / 5 + 25 + aumento);
-        addObject(new Hueco(),getWidth() / 2 + 125, getHeight() / 5 + 115 + aumento);
-        addObject(new Hueco(),getWidth() / 2 + 75, getHeight() / 5 + 25 + aumento);
-        addObject(new Hueco(),getWidth() / 2 + 75, getHeight() / 5 + 115 + aumento);
+        addObject(new Hueco(), getWidth() / 2 - 75, getHeight() / 5 + 25 + aumento);
+        addObject(new Hueco(), getWidth() / 2 - 75, getHeight() / 5 + 115 + aumento);
+        addObject(new Hueco(), getWidth() / 2 - 125, getHeight() / 5 + 25 + aumento);
+        addObject(new Hueco(), getWidth() / 2 - 125, getHeight() / 5 + 115 + aumento);
+        addObject(new Hueco(), getWidth() / 2 + 125, getHeight() / 5 + 25 + aumento);
+        addObject(new Hueco(), getWidth() / 2 + 125, getHeight() / 5 + 115 + aumento);
+        addObject(new Hueco(), getWidth() / 2 + 75, getHeight() / 5 + 25 + aumento);
+        addObject(new Hueco(), getWidth() / 2 + 75, getHeight() / 5 + 115 + aumento);
        
-        addObject(new Hueco(),getWidth() / 2 - 100, getHeight() / 5 + aumento *2 + 20);
-        addObject(new Hueco(),getWidth() / 2 + 100, getHeight() / 5 + aumento *2 + 20);
-        addObject(new Hueco(),getWidth() / 2 - 150, getHeight() / 5 + aumento *2 + 20);
-        addObject(new Hueco(),getWidth() / 2 + 150, getHeight() / 5 + aumento *2 + 20);
+        addObject(new Hueco(), getWidth() / 2 - 100, getHeight() / 5 + aumento *2 + 20);
+        addObject(new Hueco(), getWidth() / 2 + 100, getHeight() / 5 + aumento *2 + 20);
+        addObject(new Hueco(), getWidth() / 2 - 150, getHeight() / 5 + aumento *2 + 20);
+        addObject(new Hueco(), getWidth() / 2 + 150, getHeight() / 5 + aumento *2 + 20);
         
         x = getWidth() / 2 - 75;
         y = getHeight() / 2 + 75;
