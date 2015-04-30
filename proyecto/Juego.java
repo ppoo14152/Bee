@@ -107,13 +107,13 @@ public class Juego extends World
     public void ayuda1()
     {
         setBackground(getImagen(0));
-        addObject(siguiente, getWidth() / 2, 500);
+        addObject(siguiente, getWidth() / 2, 540);
     }
     
     public void ayuda2()
     {
         setBackground(getImagen(1));     
-        addObject(siguiente2, getWidth() / 2, 500);
+        addObject(siguiente2, getWidth() / 2, 540);
     }
     
     public void record()
