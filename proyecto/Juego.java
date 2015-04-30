@@ -140,6 +140,7 @@ public class Juego extends World
         contadorNectar = 0;
         nectarTotal = 0;
         frame = 0;
+        puntajeTotal=0;
     }
     
     public void nivel1()
