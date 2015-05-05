@@ -149,7 +149,7 @@ public class Juego extends World
     public void nivel1()
     {
         fase = 1;
-        limiteNectar = 10;
+        limiteNectar = 2;
         contadorNectar = 0;
         setBackground(getImagen(5));
         principal.setNectar(nectarTotal);
@@ -166,14 +166,72 @@ public class Juego extends World
         addObject(principal, getWidth() / 2, getHeight() - 200);
     }
     
+    public void nivel2()
+    {
+        fase = 3;
+        limiteNectar = 10;
+        contadorNectar = 0;
+        nectarTotal = 0;
+        frame = 0;
+        setBackground(getImagen(5));
+        principal.setNectar(nectarTotal);
+        principal.setVida(3);
+        principal.setPuntaje(0);
+        principal.setImagen(1);
+        principal.setPuntaje(puntajeTotal);
+        addObject(new Ambiente(), getWidth() / 4, (getHeight() - 60) / 5);
+        addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
+        addObject(new Ambiente(), (getWidth() * 3) / 4, ((getHeight() - 60) * 3) / 5);
+        addObject(new Ambiente(), getWidth() / 4, ((getHeight() - 60) * 4) / 5);
+        addObject(new Tela(), getWidth() / 2, 0);
+        addObject(new Aracnido(), getWidth() / 2, 0);
+        addObject(new Base(), getWidth() / 2, getHeight() - 47);
+        addObject(principal, getWidth() / 2, getHeight() - 200);
+    }
+    
+    public void controlNectar2()
+    {
+        if(fase == 3)
+        {
+            if(principal.getVida() == 0) {
+                puntajeTotal = puntajeTotal + principal.getPuntaje();
+                removeObjects(getObjects(null));
+                gameOver();
+            }
+            else {
+                agregaNectar2();
+                frame++;
+            }
+        }
+    }
+    
     public void nivel1fase2()
     {
         fase = 2;
         reyna.setChoque();
         reyna.setBomba(nectarTotal);
         reyna.setPuntaje(puntajeTotal);
-        reyna.setTiempo(100);
+        reyna.setTiempo(10);
         reyna.setImagen(1);
+        carga.setTempo(75);
+        carga.setCarga(6);
+        setBackground(getImagen(13));
+        addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
+        addObject(new Base(), getWidth() / 2, getHeight() - 47);
+        addObject(carga, getWidth() / 2 + 10, getHeight() - 35);
+        agregaHueco();
+    }
+    
+    public void nivel2fase2()
+    {
+        fase = 4;
+        reyna.setChoque();
+        reyna.setBomba(nectarTotal);
+        reyna.setPuntaje(puntajeTotal);
+        reyna.setTiempo(10);
+        reyna.setImagen(1);
+        carga.setTempo(100);
+        carga.setCarga(6);
         setBackground(getImagen(13));
         addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
@@ -196,6 +254,8 @@ public class Juego extends World
         seleccionar();        
         controlNectar();
         controlEnemigo();
+        controlNectar2();
+        controlEnemigo2();
     }
     
     public void controlNectar()
@@ -217,6 +277,14 @@ public class Juego extends World
     public void controlEnemigo()
     {
         if(fase == 2) {
+            
+            if(reyna.getTiempo() == 1) {
+                puntajeTotal = reyna.getPuntaje();
+                removeObjects(getObjects(null));
+                reyna.setTiempo(15);
+                nivel2();
+            }
+            
             if(reyna.getChoque() == 1) {
                 knock.play();
                 puntajeTotal = puntajeTotal + reyna.getPuntaje();
@@ -239,6 +307,32 @@ public class Juego extends World
         }
     }
     
+       public void controlEnemigo2()
+    {
+        if(fase == 4) {
+            
+            if(reyna.getChoque() == 1 || reyna.getTiempo()==0) {
+                knock.play();
+                puntajeTotal = reyna.getPuntaje();
+                removeObjects(getObjects(null));
+                gameOver();
+            }
+            else {
+                
+                if(Greenfoot.mouseClicked(null)){
+                    info = Greenfoot.getMouseInfo();
+                    if(info.getButton() == 3 && nectarTotal > 0){
+                        addObject(new Explosion(),Greenfoot.getMouseInfo().getX(),Greenfoot.getMouseInfo().getY());
+                        nectarTotal--;
+                    }
+                }
+                agregarEnemigo2();
+                frame++;
+            }
+            reyna.setBomba(nectarTotal);
+        }
+    }
+    
     public void agregarEnemigo()
     {
         int n = Greenfoot.getRandomNumber(7) * 80;
@@ -247,8 +341,21 @@ public class Juego extends World
         if(n == 0 || n == 480) {
             o = Greenfoot.getRandomNumber(7) * 84;
         }
-        if(frame == 120) {
+        if(frame == 100) {
             addObject(new Larva(tipo), n, o);            
+            frame = 0;
+        }           
+    }
+    
+        public void agregarEnemigo2()
+    {
+        int n = Greenfoot.getRandomNumber(7) * 80;
+        int o = 0;
+        if(n == 0 || n == 480) {
+            o = Greenfoot.getRandomNumber(7) * 84;
+        }
+        if(frame == 100) {
+            addObject(new Hormiga(), n, o);            
             frame = 0;
         }           
     }
@@ -313,6 +420,34 @@ public class Juego extends World
             contadorNectar++;
             frame = 0;
         }
+    }
+    
+    public void agregaNectar2()
+    {
+        int n = Greenfoot.getRandomNumber(getWidth()) + BORDE;
+        if(n > getWidth() - BORDE) {
+            n = getWidth() - BORDE;
+        }
+        if(frame == 75) {
+            if(contadorNectar < limiteNectar) {
+                addObject(new BurbujaNectar(), n, 0);               
+            }
+            else {
+                if(contadorNectar == limiteNectar + 4 && principal.getVida() > 0) {
+                    showText("", 80, getHeight() - 48);
+                    showText("", 152, getHeight() - 48);
+                    showText("", 400, getHeight() - 58);
+                    showText("", 400, getHeight() - 38);
+                    nectarTotal = principal.getNectar();
+                    puntajeTotal = principal.getPuntaje();
+                    removeObjects(getObjects(null));
+                    fase = 0;
+                    nivel2fase2();
+                }
+            }
+            contadorNectar++;
+            frame=0;
+        }         
     }
     
     public void guardaRecord()

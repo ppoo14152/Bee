@@ -55,6 +55,7 @@ public class Bee extends Elemento
         world.showText("x " + vida, 152, getAlto() - 48);
         world.showText("Puntaje", 400, getAlto() - 58);
         world.showText("" + puntaje, 400, getAlto() - 38);
+        world.showText("" ,250, getAlto() - 60);
     }
     
     public GreenfootImage getImagen(int n)

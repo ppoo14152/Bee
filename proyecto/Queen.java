@@ -11,7 +11,6 @@ public class Queen extends Elemento
     private GreenfootSound knock;
     private SimpleTimer timer = new SimpleTimer();
     private int tiempo;
-    
     public Queen()
     {
         super();
@@ -53,6 +52,12 @@ public class Queen extends Elemento
         return puntaje;
     }
     
+     public int getTiempo()
+    {
+        return tiempo;
+    }
+    
+    
     public void setBomba(int n)
     {
         bombaNectar = n;
@@ -62,8 +67,7 @@ public class Queen extends Elemento
     {
         tiempo = n;
     }
-    
-    
+  
     public void muestraContador()
     {
         World world = getWorld();
@@ -76,8 +80,8 @@ public class Queen extends Elemento
     
     public void timer()
     {
-        if (timer.millisElapsed() > 1000 && tiempo >0)
-      {
+       if (timer.millisElapsed() > 1000 )
+       {
           tiempo--;
           timer.mark(); 
        }
@@ -85,7 +89,7 @@ public class Queen extends Elemento
     
     public void contactoEnemigo()
     {
-        Actor b = colisionar(Larva.class);
+        Actor b = colisionar(Enemigo.class);
         if(b != null || tiempo == 0) {
             chocar();
         }

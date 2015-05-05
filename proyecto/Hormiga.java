@@ -39,13 +39,11 @@ public class Hormiga extends Enemigo
     public void mover()
     {
         switch(frame) {
-            case 0: setImage(getImagen(1));
+            case 0: setImage(getImagen(0));
             break;
-            case 10: setImage(getImagen(1));
+            case 2: setImage(getImagen(1));
                      move(4);
-            break;
-            case 20: move(4);
-                     frame = 0;
+                     frame=0;
             break;
         }
         frame++;
