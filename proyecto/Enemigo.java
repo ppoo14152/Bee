@@ -19,6 +19,5 @@ public class Enemigo extends Elemento
     
     public void act() 
     {
-        // Agrega tus códigos de acción aquí.
     }    
 }

@@ -28,21 +28,21 @@ public class Explosion extends Elemento
     
     public void degradar()
     {
-       frame++;
-       if( frame == 100)
-       {
-           mundo.removeObject(this);
-           frame = 0;
+        frame++;
+        if(frame == 100)
+        {
+            mundo.removeObject(this);
+            frame = 0;
         }
     }
     
     public void contactoEnemigo()
     {
-        Enemigos=getObjectsInRange(50,Enemigo.class);
+        Enemigos = getObjectsInRange(50, Enemigo.class);
         if(Enemigos.size() > 0 && frame > 25) {
-           mundo.removeObjects(Enemigos);
-           Actor b = mundo.getReyna();
-           ((Queen)b).aumentaPuntaje();
+            mundo.removeObjects(Enemigos);
+            Actor b = mundo.getReyna();
+            ((Queen)b).aumentaPuntaje();
         }
     }
 }

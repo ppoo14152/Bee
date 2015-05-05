@@ -25,8 +25,7 @@ public class Bee extends Elemento
         imagenes.add(new GreenfootImage("abeja1.png"));         //0
         imagenes.add(new GreenfootImage("abeja2.png"));         //1
         imagenes.add(new GreenfootImage("abeja3.png"));         //2
-        imagenes.add(new GreenfootImage("abeja4.png"));         //3
-        imagenes.add(new GreenfootImage("abejachoque.png"));    //4
+        imagenes.add(new GreenfootImage("abejachoque.png"));    //3
         setImage(getImagen(0));
     }
  
@@ -55,7 +54,7 @@ public class Bee extends Elemento
         world.showText("x " + vida, 152, getAlto() - 48);
         world.showText("Puntaje", 400, getAlto() - 58);
         world.showText("" + puntaje, 400, getAlto() - 38);
-        world.showText("" ,250, getAlto() - 60);
+        world.showText("" , 250, getAlto() - 60);
     }
     
     public GreenfootImage getImagen(int n)
@@ -77,13 +76,13 @@ public class Bee extends Elemento
     {
         if(choque == false) {
             switch(frame) {
-                case 5: setImage(getImagen(1));
+                case 5: setImage(getImagen(0));
                 break;
-                case 10: setImage(getImagen(2));
+                case 10: setImage(getImagen(1));
                 break;
-                case 15: setImage(getImagen(3));
+                case 15: setImage(getImagen(2));
                 break;
-                case 20: setImage(getImagen(0));
+                case 20: setImage(getImagen(1));
                      frame = 0;
                 break;
             }
@@ -128,7 +127,7 @@ public class Bee extends Elemento
     
     public void chocar()
     {
-        setImage(getImagen(4));
+        setImage(getImagen(3));
         knock.play();
         choque = true;
         frame = 0;

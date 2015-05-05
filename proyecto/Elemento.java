@@ -39,5 +39,4 @@ public class Elemento extends Actor
     {
         return getOneObjectAtOffset(0, 0, c);
     }
-    
 }
