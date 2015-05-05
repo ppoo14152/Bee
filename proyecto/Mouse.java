@@ -31,6 +31,7 @@ public class Mouse extends Elemento
         sprites.add(new GreenfootImage("boton_record2.png"));//5
         sprites.add(new GreenfootImage("boton_creditos2.png"));  //6
         sonido = new GreenfootSound("menu.wav");
+        sonido.setVolume(85);
     }
     
     public void act()

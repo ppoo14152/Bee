@@ -11,6 +11,7 @@ public class Bee extends Elemento
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound get;
     private GreenfootSound knock;
+    private GreenfootSound abeja;
     
     public Bee()
     {
@@ -20,7 +21,9 @@ public class Bee extends Elemento
         vida = 0;
         puntaje = 0;
         get = new GreenfootSound("get.wav");
+        get.setVolume(85);
         knock = new GreenfootSound("knock.wav");
+        knock.setVolume(85);
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("abeja1.png"));         //0
         imagenes.add(new GreenfootImage("abeja2.png"));         //1

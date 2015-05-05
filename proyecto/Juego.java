@@ -30,7 +30,9 @@ public class Juego extends World
         fase = 0;
         puntajeTotal = 0;
         sonido = new GreenfootSound("click.wav");
+        sonido.setVolume(85);
         knock = new GreenfootSound("knock.wav");
+        knock.setVolume(85);
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("ayuda.png"));         //0
         imagenes.add(new GreenfootImage("ayuda2.png"));        //1
@@ -307,11 +309,11 @@ public class Juego extends World
         }
     }
     
-       public void controlEnemigo2()
+    public void controlEnemigo2()
     {
         if(fase == 4) {
             
-            if(reyna.getChoque() == 1 || reyna.getTiempo()==0) {
+            if(reyna.getChoque() == 1 || reyna.getTiempo() == 0) {
                 knock.play();
                 puntajeTotal = reyna.getPuntaje();
                 removeObjects(getObjects(null));
@@ -347,7 +349,7 @@ public class Juego extends World
         }           
     }
     
-        public void agregarEnemigo2()
+    public void agregarEnemigo2()
     {
         int n = Greenfoot.getRandomNumber(7) * 80;
         int o = 0;
