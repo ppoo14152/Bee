@@ -11,7 +11,6 @@ public class Bee extends Elemento
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound get;
     private GreenfootSound knock;
-    private GreenfootSound abeja;
     
     public Bee()
     {
