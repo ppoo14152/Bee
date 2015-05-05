@@ -91,6 +91,7 @@ public class Queen extends Elemento
     {
         Actor b = colisionar(Enemigo.class);
         if(b != null || tiempo == 0) {
+            knock.play();
             chocar();
         }
     }

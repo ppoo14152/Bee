@@ -1,4 +1,7 @@
 #Greenfoot project file
+=\=\=\=\=\=\=
+<<<<<<<=.mine
+>>>>>>>=.r71
 class.Ambiente.image=pasto.png
 class.Ambiente.superclass=Elemento
 class.Aracnido.image=a1.png
@@ -166,12 +169,12 @@ dependency8.type=UsesDependency
 dependency9.from=Mouse
 dependency9.to=Boton
 dependency9.type=UsesDependency
-mainWindow.height=876
-mainWindow.width=1456
+mainWindow.height=744
+mainWindow.width=1382
 mainWindow.x=-8
 mainWindow.y=-8
 package.numDependencies=42
-package.numTargets=20
+package.numTargets=19
 project.charset=UTF-8
 readme.editor.height=700
 readme.editor.width=900
