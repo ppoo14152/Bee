@@ -1,18 +1,16 @@
 import greenfoot.*;
 import java.util.LinkedList;
 
-public class Aracnido extends Elemento
+public class Depredador extends Elemento
 {
     private int frame;
-    private int tipo;
     private int fase;
     private int pasos;
     private LinkedList <GreenfootImage> imagenes;
     
-    public Aracnido(int numero)
+    public Depredador(int numero)
     {
         super();
-        tipo = 0;
         frame = 0;
         fase = numero;
         imagenes = new LinkedList();
@@ -20,7 +18,12 @@ public class Aracnido extends Elemento
         imagenes.add(new GreenfootImage("a2.png"));         //1
         imagenes.add(new GreenfootImage("polilla1.png"));   //2
         imagenes.add(new GreenfootImage("polilla2.png"));   //3
-        
+        imagenes.add(new GreenfootImage("polilla3.png"));   //4
+        setImagen();
+    }
+    
+    public void setImagen()
+    {
         if(fase == 1) {
             setImage(getImagen(0));
             pasos = PASOS;
@@ -28,7 +31,7 @@ public class Aracnido extends Elemento
         else {
             setImage(getImagen(2));
             pasos = PASOS + 3;
-        }           
+        }     
     }
     
     public void act() 
@@ -49,26 +52,28 @@ public class Aracnido extends Elemento
     public void mover()
     {
         setLocation(getX(), getY() + pasos);
-        if(frame == 10) {
-            frame = 0;
-            if(tipo == 0) {
-                tipo = 1;
-                if(fase == 1) {
-                    setImage(getImagen(1));
-                }
-                else {
-                    setImage(getImagen(3));
-                }           
-            }
-            else {
-                tipo = 0;
-                if(fase == 1) {
-                    setImage(getImagen(0));
-                }
-                else {
-                    setImage(getImagen(2));
-                }           
-            }
+        switch(frame)
+        {
+            case 10: if(fase == 1) {
+                         setImage(getImagen(1));
+                     }
+                     else {
+                         setImage(getImagen(3));
+                     }
+            break;
+            case 20: if(fase == 1) {
+                         setImage(getImagen(0));
+                         frame = 0;
+                     }
+                     else {
+                         setImage(getImagen(4));
+                     }
+            break;
+            case 30: setImage(getImagen(3));
+            break;
+            case 40: setImage(getImagen(2));
+                     frame = 0;
+            break;
         }
         if(getY() > getAlto() - 10) {
             setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
@@ -91,5 +96,5 @@ public class Aracnido extends Elemento
         if(b != null) {
             ((BurbujaNectar) b).tocar();
         }
-    }
+    }    
 }

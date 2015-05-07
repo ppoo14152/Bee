@@ -1,6 +1,7 @@
 import greenfoot.*;
 import java.util.LinkedList;
 import java.util.List;
+
 public class Hueco extends Elemento
 {
     private LinkedList <GreenfootImage> imagenes;

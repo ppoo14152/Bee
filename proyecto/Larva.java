@@ -14,14 +14,18 @@ public class Larva extends Enemigo
      */
     private LinkedList <GreenfootImage> imagenes;
     private int frame;
+    private int imagen;
     
     public Larva(int sprite)
     {
         super();
+        imagen = sprite;
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("gusano1.png"));         //0
         imagenes.add(new GreenfootImage("gusano2.png"));         //1
-        setImage(getImagen(sprite));
+        imagenes.add(new GreenfootImage("gusano1-2.png"));       //2
+        imagenes.add(new GreenfootImage("gusano2-2.png"));       //3
+        setImage(getImagen(imagen));
         frame = 0;
     }
     
@@ -34,14 +38,40 @@ public class Larva extends Enemigo
     {
         turnTowards(getAncho() / 2, getAlto() / 5 * 2);
         mover();
+        animar();
+        frame++;
     }    
+    
+    public void animar()
+    {
+        switch(frame)
+        {
+            case 10: if(imagen == 0)
+                     {
+                         setImage(getImagen(2));
+                     }
+                     else
+                     {
+                         setImage(getImagen(3));
+                     }
+            break;
+            case 20: if(imagen == 0)
+                     {
+                         setImage(getImagen(0));
+                     }
+                     else
+                     {
+                         setImage(getImagen(1));
+                     }
+                     frame = 0;
+            break;
+        }
+    }
     
     public void mover()
     {
-        if(frame > 10) {
+        if(frame % 10 == 0) {
             move(4);
-            frame = 0; 
         } 
-        frame++;
     }
 }

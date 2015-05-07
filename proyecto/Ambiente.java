@@ -27,28 +27,33 @@ public class Ambiente extends Elemento
         {
             setLocation(getX(), getY() + PASOS);
             if(getY() > getAlto() - 10) {
-                tipo = Greenfoot.getRandomNumber(8);
-                switch(tipo) {
-                    case 0: case 1: case 6: case 7: case 8: setImage(getImagen(0));;
-                        setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
-                    break;
-                    case 2: setImage(getImagen(1));
-                        setLocation(30, 0);
-                    break;
-                    case 3: setImage(getImagen(2));
-                        setLocation(getAncho() - 30, 0);
-                    break;
-                    case 4: setImage(getImagen(3));
-                        setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
-                    break;
-                    case 5: setImage(getImagen(4));
-                        setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
-                    break;
-                }
+                setAmbiente();
             }
             frame = 0;
         }
         frame++;
+    }
+    
+    public void setAmbiente()
+    {
+        tipo = Greenfoot.getRandomNumber(8);
+        switch(tipo) {
+            case 0: case 1: case 6: case 7: case 8: setImage(getImagen(0));
+                    setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
+            break;
+            case 2: setImage(getImagen(1));
+                    setLocation(30, 0);
+            break;
+            case 3: setImage(getImagen(2));
+                    setLocation(getAncho() - 30, 0);
+            break;
+            case 4: setImage(getImagen(3));
+                    setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
+            break;
+            case 5: setImage(getImagen(4));
+                    setLocation(Greenfoot.getRandomNumber(getAncho()), 0);
+            break;
+        }
     }
     
     public GreenfootImage getImagen(int n)

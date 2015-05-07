@@ -1,16 +1,18 @@
 import greenfoot.*;
 import java.util.LinkedList;
+
 public class Queen extends Elemento
 {
     private int frame;
     private int bombaNectar;
     private int choque;
     private int puntaje;
+    private int tiempo;
     private LinkedList <GreenfootImage> imagenes;
     private Juego mundo;
     private GreenfootSound knock;
     private SimpleTimer timer = new SimpleTimer();
-    private int tiempo;
+    
     public Queen()
     {
         super();
@@ -52,11 +54,10 @@ public class Queen extends Elemento
         return puntaje;
     }
     
-     public int getTiempo()
+    public int getTiempo()
     {
         return tiempo;
     }
-    
     
     public void setBomba(int n)
     {
@@ -75,7 +76,7 @@ public class Queen extends Elemento
         world.showText("x " + (1 - choque), 152, getAlto() - 48);
         world.showText("Puntaje", 400, getAlto() - 58);
         world.showText("" + puntaje, 400, getAlto() - 38);
-        world.showText("Tiempo " + tiempo,250, getAlto() - 60);
+        world.showText("Tiempo " + tiempo, 250, getAlto() - 60);
     }
     
     public void timer()
@@ -102,7 +103,7 @@ public class Queen extends Elemento
         choque = 1;
     }
     
-     public void setImagen(int n)
+    public void setImagen(int n)
     {
         setImage(getImagen(n));
     }
@@ -139,12 +140,12 @@ public class Queen extends Elemento
     
     public int getChoque() 
     {
-       return choque;        
+        return choque;        
     }
     
-     public void setChoque() 
+    public void setChoque() 
     {
-       choque = 0;        
+        choque = 0;        
     }
 }    
 

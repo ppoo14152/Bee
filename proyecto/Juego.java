@@ -17,6 +17,7 @@ public class Juego extends World
     private LinkedList <GreenfootImage> imagenes;
     private GreenfootSound sonido;
     private GreenfootSound knock;
+    private GreenfootSound bomba;
     private MouseInfo info;
     
     public final int BORDE = 61;
@@ -33,6 +34,8 @@ public class Juego extends World
         sonido.setVolume(85);
         knock = new GreenfootSound("knock.wav");
         knock.setVolume(85);
+        bomba = new GreenfootSound("explosion.wav");
+        bomba.setVolume(85);
         imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("ayuda.png"));         //0
         imagenes.add(new GreenfootImage("ayuda2.png"));        //1
@@ -100,7 +103,7 @@ public class Juego extends World
         addObject(new Ambiente(), (getWidth() * 3) / 4, ((getHeight() - 60) * 3) / 5);
         addObject(new Ambiente(), getWidth() / 4, ((getHeight() - 60) * 4) / 5);
         addObject(new Tela(), getWidth() / 2, 0);
-        addObject(new Aracnido(1), getWidth() / 2, 0);
+        addObject(new Depredador(1), getWidth() / 2, 0);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
         addObject(principal, getWidth() / 2, getHeight() - 200);
     }
@@ -122,8 +125,8 @@ public class Juego extends World
         addObject(new Ambiente(), getWidth() / 2, ((getHeight() - 60) * 2) / 5);
         addObject(new Ambiente(), (getWidth() * 3) / 4, ((getHeight() - 60) * 3) / 5);
         addObject(new Ambiente(), getWidth() / 4, ((getHeight() - 60) * 4) / 5);
-        addObject(new Aracnido(1), getWidth() / 4, 0);
-        addObject(new Aracnido(2), getWidth() * 3 / 4, 0);
+        addObject(new Depredador(1), getWidth() / 4, 0);
+        addObject(new Depredador(2), getWidth() * 3 / 4, 0);
         addObject(new Base(), getWidth() / 2, getHeight() - 47);
         addObject(principal, getWidth() / 2, getHeight() - 200);
     }
@@ -175,25 +178,23 @@ public class Juego extends World
     public void controlEnemigo()
     {
         if(fase == 2 || fase == 4) {
-            
             if(reyna.getTiempo() == 1) {
                 puntajeTotal = reyna.getPuntaje();
                 removeObjects(getObjects(null));
                 reyna.setTiempo(15);
                 nivel2();
             } 
-            
             if(reyna.getChoque() == 1 || reyna.getTiempo() == 0) {
                 puntajeTotal = reyna.getPuntaje();
                 removeObjects(getObjects(null));
                 gameOver();
             }
             else {
-                
                 if(Greenfoot.mouseClicked(null)){
                     info = Greenfoot.getMouseInfo();
                     if(info.getButton() == 3 && nectarTotal > 0){
-                        addObject(new Explosion(),Greenfoot.getMouseInfo().getX(),Greenfoot.getMouseInfo().getY());
+                        addObject(new Explosion(), Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        bomba.play();
                         nectarTotal--;
                     }
                 }
@@ -258,7 +259,6 @@ public class Juego extends World
                     nectarTotal = principal.getNectar();
                     puntajeTotal = puntajeTotal + principal.getPuntaje();
                     removeObjects(getObjects(null));
-                   
                     if(fase == 1){
                         fase = 0;
                         ayuda2();
@@ -319,10 +319,10 @@ public class Juego extends World
         addObject(new Hueco(), getWidth() / 2 + 75, getHeight() / 5 + 25 + aumento);
         addObject(new Hueco(), getWidth() / 2 + 75, getHeight() / 5 + 115 + aumento);
        
-        addObject(new Hueco(), getWidth() / 2 - 100, getHeight() / 5 + aumento *2 + 20);
-        addObject(new Hueco(), getWidth() / 2 + 100, getHeight() / 5 + aumento *2 + 20);
-        addObject(new Hueco(), getWidth() / 2 - 150, getHeight() / 5 + aumento *2 + 20);
-        addObject(new Hueco(), getWidth() / 2 + 150, getHeight() / 5 + aumento *2 + 20);
+        addObject(new Hueco(), getWidth() / 2 - 100, getHeight() / 5 + aumento * 2 + 20);
+        addObject(new Hueco(), getWidth() / 2 + 100, getHeight() / 5 + aumento * 2 + 20);
+        addObject(new Hueco(), getWidth() / 2 - 150, getHeight() / 5 + aumento * 2 + 20);
+        addObject(new Hueco(), getWidth() / 2 + 150, getHeight() / 5 + aumento * 2 + 20);
         
         x = getWidth() / 2 - 75;
         y = getHeight() / 2 + 75;

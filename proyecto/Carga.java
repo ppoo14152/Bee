@@ -13,13 +13,13 @@ public class Carga extends Elemento
     {
         super();
         imagenes = new LinkedList();
-        imagenes.add(new GreenfootImage("carga0.png"));         //0
-        imagenes.add(new GreenfootImage("carga1.png"));         //1
-        imagenes.add(new GreenfootImage("carga2.png"));         //2
-        imagenes.add(new GreenfootImage("carga3.png"));         //3
-        imagenes.add(new GreenfootImage("carga4.png"));         //4
-        imagenes.add(new GreenfootImage("carga5.png"));         //5
-        imagenes.add(new GreenfootImage("carga6.png"));         //6
+        imagenes.add(new GreenfootImage("carga0.png")); //0
+        imagenes.add(new GreenfootImage("carga1.png")); //1
+        imagenes.add(new GreenfootImage("carga2.png")); //2
+        imagenes.add(new GreenfootImage("carga3.png")); //3
+        imagenes.add(new GreenfootImage("carga4.png")); //4
+        imagenes.add(new GreenfootImage("carga5.png")); //5
+        imagenes.add(new GreenfootImage("carga6.png")); //6
         setImage(getImagen(6));
         contador = 6;
         limite = 6;
@@ -31,12 +31,16 @@ public class Carga extends Elemento
     {
         frame++;
         setImage(getImagen(contador));
+        incrementaContador();
+    }    
+    
+    public void incrementaContador()
+    {
         if(frame > tempo && contador < 6) {
             contador++;
             frame = 0;
         }
-        
-    }    
+    }
     
     public void setContador()
     {
@@ -57,7 +61,7 @@ public class Carga extends Elemento
         return contador;
     }
     
-     public void setTempo(int n)
+    public void setTempo(int n)
     {
         tempo = n;
     }

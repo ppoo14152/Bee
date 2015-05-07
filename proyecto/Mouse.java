@@ -25,13 +25,14 @@ public class Mouse extends Elemento
         sprites = new LinkedList();
         sprites.add(new GreenfootImage("puntero.png"));        //0
         sprites.add(new GreenfootImage("boton_jugar.png"));    //1
-        sprites.add(new GreenfootImage("boton_record.png")); //2
-        sprites.add(new GreenfootImage("boton_creditos.png"));   //3
+        sprites.add(new GreenfootImage("boton_record.png"));   //2
+        sprites.add(new GreenfootImage("boton_creditos.png")); //3
         sprites.add(new GreenfootImage("boton_jugar2.png"));   //4
-        sprites.add(new GreenfootImage("boton_record2.png"));//5
-        sprites.add(new GreenfootImage("boton_creditos2.png"));  //6
+        sprites.add(new GreenfootImage("boton_record2.png"));  //5
+        sprites.add(new GreenfootImage("boton_creditos2.png"));//6
         sonido = new GreenfootSound("menu.wav");
         sonido.setVolume(85);
+        setImage(getImagen(0));
     }
     
     public void act()
@@ -39,12 +40,16 @@ public class Mouse extends Elemento
         jugar = bee.getJugar();
         record = bee.getRecord();
         creditos = bee.getCreditos();
+        moverMouse();
+        seleccionBoton();   
+    }
+    
+    public void moverMouse()
+    {
         if(Greenfoot.mouseMoved(null)) {
             MouseInfo mouse = Greenfoot.getMouseInfo();
             setLocation(mouse.getX() + 7, mouse.getY() + 5);
         }
-        setImage(getImagen(0));
-        seleccionBoton();   
     }
     
     public GreenfootImage getImagen(int n)

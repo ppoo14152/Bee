@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=numero
+comment0.target=Depredador(int)
+comment1.params=
+comment1.target=void\ setImagen()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=n
+comment3.target=greenfoot.GreenfootImage\ getImagen(int)
+comment4.params=
+comment4.target=void\ mover()
+comment5.params=
+comment5.target=void\ come()
+comment6.params=
+comment6.target=void\ tocar()
+numComments=7
