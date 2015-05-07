@@ -178,7 +178,7 @@ public class Juego extends World
     public void controlEnemigo()
     {
         if(fase == 2 || fase == 4) {
-            if(reyna.getTiempo() == 1) {
+            if(reyna.getTiempo() == 1 && fase == 2) {
                 puntajeTotal = reyna.getPuntaje();
                 removeObjects(getObjects(null));
                 reyna.setTiempo(15);
