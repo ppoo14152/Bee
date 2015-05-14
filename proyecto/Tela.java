@@ -27,8 +27,8 @@ public class Tela extends Elemento
     
     /**
      * Este método es ejecutado por Greenfoot cuando se Inicia el
-     * juego. Llama a las funciones que representan lo que el
-     * objeto debe hacer cuando es agregado al mundo.
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
      */
     public void act() 
     {
@@ -59,9 +59,6 @@ public class Tela extends Elemento
      * que esté teniendo contacto con un objeto de esta clase.
      * Dichas señales modifican el estado del objeto de la clase
      * Bee.
-     * 
-     * @see #Bee.setVida()
-     * @see #Bee.chocar()
      */
     public void atrapar()
     {
@@ -77,8 +74,6 @@ public class Tela extends Elemento
      * Este método envía una señal al objeto de la clase
      * BurbujaNectar que esté teniendo contacto con un objeto
      * de esta clase.
-     * 
-     * @see #Bee.tocar()
      */
     public void tocar()
     {

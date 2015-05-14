@@ -22,8 +22,9 @@ public class Hormiga extends Enemigo
     }
     
     /**
-     * Act - hace lo que Hormiga quiere hacer. Este método se llama "cuando quiera" o whenever
-     * los botones 'Actuar or 'Ejecutar' son presionados en el entorno.
+     * Este método es ejecutado por Greenfoot cuando se Inicia el
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
      */
     public void act() 
     {

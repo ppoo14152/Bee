@@ -5,6 +5,7 @@ comment1.params=n
 comment1.target=greenfoot.GreenfootImage\ getImagen(int)
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment3.params=
 comment3.target=void\ animar()
 comment4.params=

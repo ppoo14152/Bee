@@ -29,7 +29,12 @@ public class Hueco extends Elemento
         imagenes.add(new GreenfootImage("panel.png"));      //2
         setImage(getImagen(0));
     }
-
+    
+    /**
+     * Este método es ejecutado por Greenfoot cuando se Inicia el
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
+     */
     public void act() 
     {
         cargar();

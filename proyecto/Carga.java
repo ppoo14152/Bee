@@ -26,7 +26,12 @@ public class Carga extends Elemento
         frame = 0;
         tempo = 0;
     }
-
+    
+    /**
+     * Este método es ejecutado por Greenfoot cuando se Inicia el
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
+     */
     public void act() 
     {
         frame++;

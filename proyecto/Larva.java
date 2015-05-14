@@ -34,6 +34,11 @@ public class Larva extends Enemigo
         return imagenes.get(n);
     }
     
+    /**
+     * Este método es ejecutado por Greenfoot cuando se Inicia el
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
+     */
     public void act() 
     {
         turnTowards(getAncho() / 2, getAlto() / 5 * 2);

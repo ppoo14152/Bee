@@ -45,8 +45,8 @@ public class Bee extends Elemento
     
     /**
      * Este método es ejecutado por Greenfoot cuando se Inicia el
-     * juego. Llama a las funciones que representan lo que el
-     * objeto debe hacer cuando es agregado al mundo.
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
      */
     public void act()
     {
@@ -177,7 +177,7 @@ public class Bee extends Elemento
      * a este incremento es: si hubo colision con un
      * objeto de la clase burbujaNectar.
      * 
-     * @see BurbujaNectar
+     * @see BurbujaNectar.class
      */
     public void setContador()
     {

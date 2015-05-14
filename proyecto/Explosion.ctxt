@@ -3,6 +3,7 @@ comment0.params=
 comment0.target=Explosion()
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment2.params=world
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
