@@ -1,13 +1,23 @@
 import greenfoot.*;
 import java.util.List;
-
+/**
+ * Esta clase representa la explosion que se puede realizar
+ * en la en la segunda fase de cada nivel.
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
+ */
 public class Explosion extends Elemento
 {
     private int frame;
     private GreenfootImage sprite;
     private Juego mundo;
     private List <Enemigo> Enemigos;
-    
+      /**
+     * Constructor de la clase Explosion. Fija frame,
+     * define y asigna la imagen que utiliza el objeto de esta clase.
+     */
     public Explosion()
     {
         super();
@@ -26,12 +36,21 @@ public class Explosion extends Elemento
         contactoEnemigo();
         degradar();
     }  
-    
+   
+     /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
     public void addedToWorld(World world) 
     {
         mundo = (Juego) world;        
     }
     
+     /**
+     * Este método se encarga de eliminar el objeto despues
+     * de terminar el tiempo de acción.
+     */
     public void degradar()
     {
         frame++;
@@ -42,6 +61,11 @@ public class Explosion extends Elemento
         }
     }
     
+     /**
+     * Este método se encarga de eliminar los objetos de la clase
+     * Enemigo que esten en contacto con el despues de un determinado 
+     * tiempo, además de incrementar el puntaje del nivel.
+     */
     public void contactoEnemigo()
     {
         Enemigos = getObjectsInRange(50, Enemigo.class);

@@ -1,13 +1,17 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Explosion()
+comment0.text=\r\n\ Constructor\ de\ la\ clase\ Explosion.\ Fija\ frame,\r\n\ define\ y\ asigna\ la\ imagen\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment2.params=world
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
 comment3.params=
 comment3.target=void\ degradar()
+comment3.text=\r\n\ Este\ m\u00E9todo\ se\ encarga\ de\ eliminar\ el\ objeto\ despues\r\n\ de\ terminar\ el\ tiempo\ de\ acci\u00F3n.\r\n
 comment4.params=
 comment4.target=void\ contactoEnemigo()
+comment4.text=\r\n\ Este\ m\u00E9todo\ se\ encarga\ de\ eliminar\ los\ objetos\ de\ la\ clase\r\n\ Enemigo\ que\ esten\ en\ contacto\ con\ el\ despues\ de\ un\ determinado\ \r\n\ tiempo,\ adem\u00E1s\ de\ incrementar\ el\ puntaje\ del\ nivel.\r\n
 numComments=5

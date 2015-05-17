@@ -91,7 +91,7 @@ public class Juego extends World
     public void nivel1()
     {
         fase = 1;
-        limiteNectar = 2;
+        limiteNectar = 10;
         contadorNectar = 0;
         setBackground(getImagen(5));
         principal.setNectar(nectarTotal);
@@ -111,7 +111,7 @@ public class Juego extends World
     public void nivel2()
     {
         fase = 3;
-        limiteNectar = 10;
+        limiteNectar = 20;
         contadorNectar = 0;
         nectarTotal = 0;
         frame = 0;
@@ -137,9 +137,9 @@ public class Juego extends World
         reyna.setChoque();
         reyna.setBomba(nectarTotal);
         reyna.setPuntaje(puntajeTotal);
-        reyna.setTiempo(10);
+        reyna.setTiempo(60);
         reyna.setImagen(1);
-        carga.setTempo(75);
+        carga.setTempo(60);
         carga.setCarga(6);
         setBackground(getImagen(13));
         addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
@@ -154,9 +154,9 @@ public class Juego extends World
         reyna.setChoque();
         reyna.setBomba(nectarTotal);
         reyna.setPuntaje(puntajeTotal);
-        reyna.setTiempo(10);
+        reyna.setTiempo(120);
         reyna.setImagen(1);
-        carga.setTempo(100);
+        carga.setTempo(80);
         carga.setCarga(6);
         setBackground(getImagen(13));
         addObject(reyna, getWidth() / 2, getHeight() / 5 * 2);
@@ -210,15 +210,27 @@ public class Juego extends World
         int n = Greenfoot.getRandomNumber(7) * 80;
         int o = 0;
         int tipo = Greenfoot.getRandomNumber(2);
+        int tiempo;
         if(n == 0 || n == 480) {
             o = Greenfoot.getRandomNumber(7) * 84;
         }
-        if(frame == 100) {
+        if(fase == 2){
+            tiempo = 100;
+        }
+        else {
+            tiempo = 65;
+        }            
+        if(frame == tiempo) {
             if(fase == 2) {
                 addObject(new Larva(tipo), n, o);   
             }
             if(fase == 4) {
-                addObject(new Hormiga(), n, o);   
+                if(tipo == 0) {                    
+                    addObject(new Larva(tipo), n, o);
+                }
+                else {
+                    addObject(new Hormiga(), n, o);   
+                }
             }      
             frame = 0;
         }           

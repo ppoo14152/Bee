@@ -43,7 +43,7 @@ public class Hormiga extends Enemigo
             case 4: setImage(getImagen(0));
             break;
             case 8: setImage(getImagen(1));
-                    move(5);
+                    move(6);
                     frame = 0;
             break;
         }
