@@ -1,6 +1,12 @@
 import greenfoot.*;
 import java.util.LinkedList;
-
+/**
+ * Esta clase representa el cursor en el menu del juego.
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
+ */
 public class Mouse extends Elemento
 {
     private int tocaJ;
@@ -13,6 +19,11 @@ public class Mouse extends Elemento
     private Juego bee;
     private Boton jugar, record, regresar, siguiente, creditos;
     
+    /**
+    * Constructor de la clase Bee. Iniciaiza las variables
+    * de instancia, además de definir los sonidos e
+    * imágenes que utiliza el objeto de esta clase.
+    */
     public Mouse(GreenfootImage ima)
     {
         super();
@@ -49,6 +60,10 @@ public class Mouse extends Elemento
         seleccionBoton();   
     }
     
+    /**
+     * Este método mueve el objeto de la clase a la posicion actual
+     * del cursor.
+     */
     public void moverMouse()
     {
         if(Greenfoot.mouseMoved(null)) {
@@ -57,11 +72,25 @@ public class Mouse extends Elemento
         }
     }
     
+    /**
+     * Este método regresa la imágen (tipo GreenfootImage)
+     * contenida en una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     * @return GreenfootImage - Imágen contenida en la Lista
+     * en la posición especificada.
+     */
     public GreenfootImage getImagen(int n)
     {
         return sprites.get(n);
     }
     
+    /**
+     * Este método hace el cambio de imagenes de los botones
+     * que intersectan con los objetos de esta clase.
+     */
     public void seleccionBoton()
     {
         Actor bot = getOneIntersectingObject(Boton.class);

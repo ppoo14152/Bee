@@ -1,6 +1,14 @@
 import greenfoot.*;
 import java.util.LinkedList;
 
+/**
+ * Esta clase representa al personaje principal
+ * en la segunda fase de cada nivel.
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
+ */
 public class Queen extends Elemento
 {
     private int frame;
@@ -13,6 +21,11 @@ public class Queen extends Elemento
     private GreenfootSound knock;
     private SimpleTimer timer = new SimpleTimer();
     
+    /**
+     * Constructor de la clase Queen. Fija frame, choque, puntaje
+     * tiempo y bombaNectar, además de definir los sonidos e
+     * imágenes que utiliza el objeto de esta clase.
+     */
     public Queen()
     {
         super();
@@ -44,36 +57,71 @@ public class Queen extends Elemento
         muestraContador();
     }
     
+    /**
+     * Este método define el valor de la variable puntaje con el
+     * valor especificado en la llamada al método.
+     * 
+     * @param int Valor que va a tomar la variable puntaje.
+     */
     public void setPuntaje(int puntos)
     {
         puntaje = puntos;
     }
     
+    /**
+     * Este método incrementa el valor actual de la variable puntaje.
+     */
     public void aumentaPuntaje()
     {
         puntaje = puntaje + 10;
     }
     
+    /**
+     * Este método regresa el valor de la variable puntaje.
+     * 
+     * @return int - Valor actual de la variable puntaje.
+     */
     public int getPuntaje()
     {
         return puntaje;
     }
     
+    /**
+     * Este método regresa el valor de la variable tiempo.
+     * 
+     * @return int - Valor actual de la variable timepo.
+     */
     public int getTiempo()
     {
         return tiempo;
     }
-    
+   
+    /**
+     * Este método define el valor de la variable bombaNectar con el
+     * valor especificado en la llamada al método.
+     * 
+     * @param int Valor que va a tomar la variable bombaNectar.
+     */
     public void setBomba(int n)
     {
         bombaNectar = n;
     }
     
+    /**
+     * Este método define el valor de la variable timepo con el
+     * valor especificado en la llamada al método.
+     * 
+     * @param int Valor que va a tomar la variable timepo.
+     */
     public void setTiempo(int n)
     {
         tiempo = n;
     }
   
+    /**
+     * Este método muestra en pantalla los valores de las
+     * variables choque, bombaNectar y puntaje (con letrero).
+     */
     public void muestraContador()
     {
         World world = getWorld();
@@ -84,6 +132,10 @@ public class Queen extends Elemento
         world.showText("Tiempo " + tiempo, 250, getAlto() - 60);
     }
     
+    /**
+     * Este método decrementa la variable tiempo si se
+     * cumple la condicón establecida.
+     */
     public void timer()
     {
        if (timer.millisElapsed() > 1000 )
@@ -93,6 +145,10 @@ public class Queen extends Elemento
        }
     }
     
+    /**
+     * Este método reproduce un sonido cuando se ha colisionado con un
+     * enemigo o se ha acabado el tiempo.
+     */
     public void contactoEnemigo()
     {
         Actor b = colisionar(Enemigo.class);
@@ -102,22 +158,49 @@ public class Queen extends Elemento
         }
     }
     
+    /**
+     * Este método realiza la animación de la abeja al recibir daño.
+     */
     public void chocar()
     {
         setImage(getImagen(4));
         choque = 1;
     }
     
+    /**
+     * Este método define la imágen (tipo GreenfootImage)
+     * que el objeto de esta clase va a tomar. Dicha imágen
+     * es obtenida de una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     */
     public void setImagen(int n)
     {
         setImage(getImagen(n));
     }
     
+    /**
+     * Este método regresa la imágen (tipo GreenfootImage)
+     * contenida en una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     * @return GreenfootImage - Imágen contenida en la Lista
+     * en la posición especificada.
+     */
     public GreenfootImage getImagen(int n)
     {
         return imagenes.get(n);
     }
     
+     /**
+     * Este método cambia  las imagenes del objeto para
+     * generar una animación.
+     * 
+     */  
     public void animar()
     {     
         switch(frame) {
@@ -148,11 +231,20 @@ public class Queen extends Elemento
         mundo = (Juego) world;        
     }
     
+     /**
+     * Este método regresa el valor de la variable choque.
+     * 
+     * @return int - Valor actual de la variable choque.
+     */  
     public int getChoque() 
     {
         return choque;        
     }
-    
+
+     /**
+     * Este método asigna el valor de 0 a la variable choque.
+     *
+     */    
     public void setChoque() 
     {
         choque = 0;        

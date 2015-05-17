@@ -1,15 +1,19 @@
 #BlueJ class context
 comment0.params=ima
 comment0.target=Mouse(greenfoot.GreenfootImage)
+comment0.text=\r\n\ Constructor\ de\ la\ clase\ Bee.\ Iniciaiza\ las\ variables\r\n\ de\ instancia,\ adem\u00E1s\ de\ definir\ los\ sonidos\ e\r\n\ im\u00E1genes\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment2.params=
 comment2.target=void\ moverMouse()
+comment2.text=\r\n\ Este\ m\u00E9todo\ mueve\ el\ objeto\ de\ la\ clase\ a\ la\ posicion\ actual\r\n\ del\ cursor.\r\n
 comment3.params=n
 comment3.target=greenfoot.GreenfootImage\ getImagen(int)
+comment3.text=\r\n\ Este\ m\u00E9todo\ regresa\ la\ im\u00E1gen\ (tipo\ GreenfootImage)\r\n\ contenida\ en\ una\ Lista\ de\ la\ posici\u00F3n\ espec\u00EDficada\r\n\ por\ el\ valor\ asignado\ en\ la\ llamada\ a\ este\ m\u00E9todo.\r\n\ \r\n\ @param\ int\ Valor\ de\ la\ posici\u00F3n\ de\ la\ im\u00E1gen\ que\ se\r\n\ desea\ obtener.\r\n\ @return\ GreenfootImage\ -\ Im\u00E1gen\ contenida\ en\ la\ Lista\r\n\ en\ la\ posici\u00F3n\ especificada.\r\n
 comment4.params=
 comment4.target=void\ seleccionBoton()
+comment4.text=\r\n\ Este\ m\u00E9todo\ hace\ el\ cambio\ de\ imagenes\ de\ los\ botones\r\n\ que\ intersectan\ con\ los\ objetos\ de\ esta\ clase.\r\n
 comment5.params=world
 comment5.target=void\ addedToWorld(greenfoot.World)
 comment5.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n

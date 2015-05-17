@@ -1,12 +1,24 @@
 import greenfoot.*;
 import java.util.LinkedList;
 
+/**
+ * Esta clase representa los objetos de fon
+ * en la primer parte de cada nivel.
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
+ */
 public class Ambiente extends Elemento
 {
     private int frame;
     private int tipo;
     private LinkedList <GreenfootImage> imagenes;
     
+    /**
+     * Constructor de la clase Ambiente. Inicializa las variables frame, 
+     * y tipo, además de definir  las imágenes que utiliza el objeto de esta clase.
+     */
     public Ambiente() 
     {
         super();
@@ -39,6 +51,10 @@ public class Ambiente extends Elemento
         frame++;
     }
     
+    /**
+     * Este método define la imagen que tendra este objeto cada vez que 
+     * sea llamado.
+     */
     public void setAmbiente()
     {
         tipo = Greenfoot.getRandomNumber(8);
@@ -61,6 +77,16 @@ public class Ambiente extends Elemento
         }
     }
     
+    /**
+     * Este método regresa la imágen (tipo GreenfootImage)
+     * contenida en una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     * @return GreenfootImage - Imágen contenida en la Lista
+     * en la posición especificada.
+     */
     public GreenfootImage getImagen(int n)
     {
         return imagenes.get(n);

@@ -1,19 +1,26 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Carga()
+comment0.text=\r\n\ Constructor\ de\ la\ clase\ Bee.\ Fija\ frame\ y\ tempo\ a\ 0,\ \r\n\ limite\ y\ contador\ a\ 6,\ adem\u00E1s\ define\ las\r\n\ im\u00E1genes\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment2.params=
 comment2.target=void\ incrementaContador()
+comment2.text=\r\n\ Este\ m\u00E9todo\ aumenta\ la\ variable\ contador\ si\ se\ cumplen\r\n\ las\ condiciones\ establecidas.\r\n
 comment3.params=
 comment3.target=void\ setContador()
+comment3.text=\r\nEste\ m\u00E9todo\ decrementa\ la\ variable\ contador\ si\ se\ cumplen\r\n\ las\ condiciones\ establecidas.\r\n
 comment4.params=n
 comment4.target=void\ setCarga(int)
+comment4.text=\r\n\ M\u00E9todo\ utilizado\ para\ cambiar\ el\ valor\ de\ la\ variable\ contador.\r\n\ \r\n\ @param\ int\ Valor\ que\ va\ a\ tomar\ la\ variable\ contador.\r\n
 comment5.params=
 comment5.target=int\ getCotador()
+comment5.text=\r\n\ Este\ m\u00E9todo\ regresa\ el\ valor\ de\ la\ variable\ contador.\r\n\ \r\n\ @return\ int\ -\ Valor\ actual\ de\ la\ variable\ contador.\r\n
 comment6.params=n
 comment6.target=void\ setTempo(int)
+comment6.text=\r\n\ M\u00E9todo\ utilizado\ para\ cambiar\ el\ valor\ de\ la\ variable\ tempo.\r\n\ \r\n\ @param\ int\ Valor\ que\ va\ a\ tomar\ la\ variable\ tempo.\r\n
 comment7.params=n
 comment7.target=greenfoot.GreenfootImage\ getImagen(int)
+comment7.text=\r\n\ Este\ m\u00E9todo\ regresa\ la\ im\u00E1gen\ (tipo\ GreenfootImage)\r\n\ contenida\ en\ una\ Lista\ de\ la\ posici\u00F3n\ espec\u00EDficada\r\n\ por\ el\ valor\ asignado\ en\ la\ llamada\ a\ este\ m\u00E9todo.\r\n\ \r\n\ @param\ int\ Valor\ de\ la\ posici\u00F3n\ de\ la\ im\u00E1gen\ que\ se\r\n\ desea\ obtener.\r\n\ @return\ GreenfootImage\ -\ Im\u00E1gen\ contenida\ en\ la\ Lista\r\n\ en\ la\ posici\u00F3n\ especificada.\r\n
 numComments=8
