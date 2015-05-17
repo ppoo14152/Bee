@@ -12,4 +12,5 @@ comment4.params=
 comment4.target=void\ seleccionBoton()
 comment5.params=world
 comment5.target=void\ addedToWorld(greenfoot.World)
+comment5.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
 numComments=6

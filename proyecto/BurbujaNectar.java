@@ -1,5 +1,11 @@
 import greenfoot.*;
-
+/**
+ * Esta clase representa 
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
+ */
 public class BurbujaNectar extends Elemento
 {
     private int frame;

@@ -16,6 +16,7 @@ comment14.params=
 comment14.target=void\ animar()
 comment15.params=world
 comment15.target=void\ addedToWorld(greenfoot.World)
+comment15.text=\r\n\ Este\ m\u00E9todo\ iguala\ la\ variable\ mundo\ a\ el\ World\ de\ juego.\r\n\r\n@param\ World\ Variable\ que\ representa\ el\ mundo\ del\ proyecto.\ \r\n
 comment16.params=
 comment16.target=int\ getChoque()
 comment17.params=

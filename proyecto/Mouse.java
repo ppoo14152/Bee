@@ -94,6 +94,11 @@ public class Mouse extends Elemento
         }
     }
     
+     /**
+     * Este método iguala la variable mundo a el World de juego.
+     *
+     *@param World Variable que representa el mundo del proyecto. 
+     */
     public void addedToWorld(World world) 
     {
         bee = (Juego) world;        

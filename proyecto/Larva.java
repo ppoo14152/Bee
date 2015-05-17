@@ -1,21 +1,25 @@
 import greenfoot.*;
 import java.util.LinkedList;
 /**
- * Escribe una descrición de la clase Larva aquí.
+ * Esta clase representa un enemigo en la fase dos de cada nivel
  * 
- * @autor (tu nombre) 
- * @versión (Un número de versión o una fecha)
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
  */
 public class Larva extends Enemigo
 {
-    /**
-     * Act - hace lo que Larva quiere hacer. Este método se llama "cuando quiera" o whenever
-     * los botones 'Actuar or 'Ejecutar' son presionados en el entorno.
-     */
+   
     private LinkedList <GreenfootImage> imagenes;
     private int frame;
     private int imagen;
     
+     /**
+     * Constructor de la clase Hormiga. Fija frame a 0, además de definir las
+     * imágenes que utiliza el objeto de esta clase.
+     * 
+     * @param int Valor que va a tomar la variable imagen.
+     */
     public Larva(int sprite)
     {
         super();
@@ -29,6 +33,17 @@ public class Larva extends Enemigo
         frame = 0;
     }
     
+    
+    /**
+     * Este método regresa la imágen (tipo GreenfootImage)
+     * contenida en una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     * @return GreenfootImage - Imágen contenida en la Lista
+     * en la posición especificada.
+     */    
     public GreenfootImage getImagen(int n)
     {
         return imagenes.get(n);
@@ -46,7 +61,12 @@ public class Larva extends Enemigo
         animar();
         frame++;
     }    
-    
+   
+    /**
+     * Este método intercambia las imagenes del objeto
+     * para generar una animación.
+     *
+     */   
     public void animar()
     {
         switch(frame)
@@ -72,7 +92,11 @@ public class Larva extends Enemigo
             break;
         }
     }
-    
+     
+    /**
+     * Este método mueve el objeto en la direccion establecida.
+     *
+     */   
     public void mover()
     {
         if(frame % 10 == 0) {

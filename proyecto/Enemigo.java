@@ -1,22 +1,28 @@
 import greenfoot.*;
-
 /**
- * Escribe una descrición de la clase Enemigo aquí.
+ * Está clase es utilizada para englobar a los enemigos 
+ * de la segunda fase de cada nivel, para optimizar el 
+ * control de enemigos.
  * 
- * @autor (tu nombre) 
- * @versión (Un número de versión o una fecha)
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 26/abril/2015
  */
 public class Enemigo extends Elemento
 {
     /**
-     * Act - hace lo que Enemigo quiere hacer. Este método se llama "cuando quiera" o whenever
-     * los botones 'Actuar or 'Ejecutar' son presionados en el entorno.
+     * Constructor de la clase Elemento.
      */
     public Enemigo()
     {
         super();
     }
     
+     /**
+     * Este método es ejecutado por Greenfoot cuando se Inicia el
+     * juego. Ejecuta las funciones que representan lo que el
+     * objeto de esta clase debe hacer cuando es agregado al mundo.
+     */
     public void act() 
     {
     }    

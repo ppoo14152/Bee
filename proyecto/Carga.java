@@ -1,6 +1,14 @@
 import greenfoot.*;
 import java.util.LinkedList;
 
+/**
+ * Esta clase representa un elemento de la interfaz del juego,
+ * es agregado en cada fase de cada nivel.
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 30/abril/2015
+ */
 public class Carga extends Elemento
 {
     private LinkedList <GreenfootImage> imagenes;

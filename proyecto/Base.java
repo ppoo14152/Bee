@@ -11,6 +11,9 @@ public class Base extends Elemento
 {
     private GreenfootImage sprite;
     
+    /**
+     * Constructor de la clase, inicializa la imágen que utiliza el objeto de esta clase.
+     */
     public Base()
     {
         super();
