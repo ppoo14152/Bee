@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=ima
 comment0.target=Boton(greenfoot.GreenfootImage)
+comment0.text=\r\n\ Constructor\ de\ la\ clase,\ inicializa\ la\ im\u00E1gen\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ act()
 numComments=2
