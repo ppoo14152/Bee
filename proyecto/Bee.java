@@ -176,8 +176,6 @@ public class Bee extends Elemento
      * numeroNectar y el de la variable puntaje. La base
      * a este incremento es: si hubo colision con un
      * objeto de la clase burbujaNectar.
-     * 
-     * @see BurbujaNectar.class
      */
     public void setContador()
     {

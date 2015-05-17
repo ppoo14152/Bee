@@ -89,7 +89,7 @@ public class Queen extends Elemento
     /**
      * Este método regresa el valor de la variable tiempo.
      * 
-     * @return int - Valor actual de la variable timepo.
+     * @return int - Valor actual de la variable tiempo.
      */
     public int getTiempo()
     {
@@ -134,7 +134,7 @@ public class Queen extends Elemento
     
     /**
      * Este método decrementa la variable tiempo si se
-     * cumple la condicón establecida.
+     * cumple la condición establecida.
      */
     public void timer()
     {

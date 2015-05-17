@@ -1,17 +1,23 @@
 #BlueJ class context
 comment0.params=numero
 comment0.target=Depredador(int)
+comment0.text=\r\n\ Constructor\ de\ la\ clase\ Mouse.\ Iniciaiza\ las\ variables\r\n\ de\ instancia,\ adem\u00E1s\ de\ definir\ las\ imagenes\ que\r\n\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ setImagen()
+comment1.text=\r\n\ Este\ m\u00E9todo\ define\ la\ im\u00E1gen\ (tipo\ GreenfootImage)\r\n\ que\ el\ objeto\ de\ esta\ clase\ va\ a\ tomar,\ adem\u00E1s\ de\r\n\ definir\ la\ distancia\ que\ avanzar\u00E1\ el\ objeto\ al\ moverse.\r\n\ Dicha\ im\u00E1gen\ es\ obtenida\ de\ una\ Lista\ de\ la\ posici\u00F3n\r\n\ espec\u00EDficada\ por\ el\ valor\ asignado\ en\ la\ llamada\r\n\ a\ este\ m\u00E9todo.\r\n\ \r\n\ @param\ int\ Valor\ de\ la\ posici\u00F3n\ de\ la\ im\u00E1gen\ que\ se\r\n\ desea\ obtener.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment3.params=n
 comment3.target=greenfoot.GreenfootImage\ getImagen(int)
+comment3.text=\r\n\ Este\ m\u00E9todo\ regresa\ la\ im\u00E1gen\ (tipo\ GreenfootImage)\r\n\ contenida\ en\ una\ Lista\ de\ la\ posici\u00F3n\ espec\u00EDficada\r\n\ por\ el\ valor\ asignado\ en\ la\ llamada\ a\ este\ m\u00E9todo.\r\n\ \r\n\ @param\ int\ Valor\ de\ la\ posici\u00F3n\ de\ la\ im\u00E1gen\ que\ se\r\n\ desea\ obtener.\r\n\ @return\ GreenfootImage\ -\ Im\u00E1gen\ contenida\ en\ la\ Lista\r\n\ en\ la\ posici\u00F3n\ especificada.\r\n
 comment4.params=
 comment4.target=void\ mover()
+comment4.text=\r\n\ Este\ m\u00E9todo\ mueve\ un\ objeto\ de\ esta\ clase\ por\ el\ escenario,\r\n\ adem\u00E1s\ de\ redefinir\ su\ posici\u00F3n\ cuando\ llega\ a\ un\ limite\r\n\ establecido.\ Tambi\u00E9n\ se\ encarga\ de\ animar\ al\ objeto\r\n\ simulando\ su\ movimiento\r\n
 comment5.params=
 comment5.target=void\ come()
+comment5.text=\r\n\ Este\ m\u00E9todo\ env\u00EDa\ varias\ se\u00F1ales\ al\ objeto\ de\ la\ clase\ Bee\r\n\ que\ est\u00E9\ teniendo\ contacto\ con\ un\ objeto\ de\ esta\ clase.\r\n\ Dichas\ se\u00F1ales\ modifican\ el\ estado\ del\ objeto\ de\ la\ clase\r\n\ Bee.\r\n
 comment6.params=
 comment6.target=void\ tocar()
+comment6.text=\r\n\ Este\ m\u00E9todo\ env\u00EDa\ una\ se\u00F1al\ al\ objeto\ de\ la\ clase\r\n\ BurbujaNectar\ que\ est\u00E9\ teniendo\ contacto\ con\ un\ objeto\r\n\ de\ esta\ clase.\r\n
 numComments=7

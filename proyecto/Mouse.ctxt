@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=ima
 comment0.target=Mouse(greenfoot.GreenfootImage)
-comment0.text=\r\n\ Constructor\ de\ la\ clase\ Bee.\ Iniciaiza\ las\ variables\r\n\ de\ instancia,\ adem\u00E1s\ de\ definir\ los\ sonidos\ e\r\n\ im\u00E1genes\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
+comment0.text=\r\n\ Constructor\ de\ la\ clase\ Mouse.\ Iniciaiza\ las\ variables\r\n\ de\ instancia,\ adem\u00E1s\ de\ definir\ los\ sonidos\ e\r\n\ im\u00E1genes\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n

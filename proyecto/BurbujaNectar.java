@@ -11,6 +11,10 @@ public class BurbujaNectar extends Elemento
     private int frame;
     private GreenfootImage sprite;
     
+    /**
+     * Constructor de la clase Bee. Fija frame a 0, además
+     * la imágen que utiliza el objeto de esta clase.
+     */
     public BurbujaNectar()
     {
         super();
@@ -33,6 +37,11 @@ public class BurbujaNectar extends Elemento
         frame++;
     }
     
+    /**
+     * Este método mueve un objeto de esta clase por el escenario,
+     * además de redefinir su posición cuando llega a un límite
+     * establecido.
+     */
     public void mover()
     {
         setLocation(getX(), getY() + 5);
@@ -42,6 +51,9 @@ public class BurbujaNectar extends Elemento
         frame = 0;
     }
     
+    /**
+     * Este método reposiciona al objeto de esta clase.
+     */
     public void tocar()
     {
         int n = Greenfoot.getRandomNumber(getAncho()) + 61;

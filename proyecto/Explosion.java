@@ -1,8 +1,8 @@
 import greenfoot.*;
 import java.util.List;
 /**
- * Esta clase representa la explosion que se puede realizar
- * en la en la segunda fase de cada nivel.
+ * Esta clase representa la explosión que se puede realizar
+ * en la segunda fase de cada nivel.
  * 
  * @author José Joaquín Ortiz Hernández
  * @author Oscar Torres Silva
@@ -48,7 +48,7 @@ public class Explosion extends Elemento
     }
     
      /**
-     * Este método se encarga de eliminar el objeto despues
+     * Este método se encarga de eliminar el objeto después
      * de terminar el tiempo de acción.
      */
     public void degradar()
@@ -63,8 +63,9 @@ public class Explosion extends Elemento
     
      /**
      * Este método se encarga de eliminar los objetos de la clase
-     * Enemigo que esten en contacto con el despues de un determinado 
-     * tiempo, además de incrementar el puntaje del nivel.
+     * Enemigo que estén en contacto con un objeto de esta clase
+     * despues de un determinado tiempo, además de incrementar
+     * el puntaje del nivel.
      */
     public void contactoEnemigo()
     {

@@ -65,7 +65,6 @@ public class Larva extends Enemigo
     /**
      * Este método intercambia las imagenes del objeto
      * para generar una animación.
-     *
      */   
     public void animar()
     {
@@ -94,7 +93,7 @@ public class Larva extends Enemigo
     }
      
     /**
-     * Este método mueve el objeto en la direccion establecida.
+     * Este método mueve el objeto en la dirección establecida.
      *
      */   
     public void mover()

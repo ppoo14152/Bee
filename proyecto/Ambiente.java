@@ -2,8 +2,8 @@ import greenfoot.*;
 import java.util.LinkedList;
 
 /**
- * Esta clase representa los objetos de fon
- * en la primer parte de cada nivel.
+ * Esta clase representa a los objetos que forman parte
+ * del fondo en la primer parte de cada nivel.
  * 
  * @author José Joaquín Ortiz Hernández
  * @author Oscar Torres Silva

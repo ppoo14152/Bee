@@ -1,6 +1,13 @@
 import greenfoot.*;
 import java.util.LinkedList;
-
+/**
+ * Subclase de World. Respresenta todos los escenarios mostrados
+ * en el juego, además de mantener el control de cada uno de los
+ * diversos niveles.
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 17/mayo/2015
+ */
 public class Juego extends World
 {
     private int limiteNectar;
@@ -20,8 +27,18 @@ public class Juego extends World
     private GreenfootSound bomba;
     private MouseInfo info;
     
+    /**
+     * Variable global constante (int) que representa el número de pixeles
+     * limite máximo antes de tocar el borde del escenario.
+     */
     public final int BORDE = 61;
     
+    /**
+     * Constructor de la clase Juego. Inicializa las
+     * variables de instancia de la clase, además
+     * de definir los sonidos e imágenes que se
+     * utilizan.
+     */
     public Juego()
     {
         super(480, 600, 1);
@@ -64,6 +81,11 @@ public class Juego extends World
         menu();
     }
     
+    /**
+     * Este método es ejecutado por Greenfoot cuando se Inicia el
+     * juego. Ejecuta los métodos que representan las acciones que
+     * se deben de realizar durante la ejecución del juego.
+     */
     public void act()
     {
         seleccionar();        
@@ -71,6 +93,12 @@ public class Juego extends World
         controlEnemigo();
     }
     
+    /**
+     * Este método se encarga de mostrar la pantalla de Game
+     * Over. Asigna el fondo de pantalla y agrega un botón.
+     * Además de guardar un Record con el puntaje acumulado y
+     * reinicia valores en variables de instancia.
+     */
     public void gameOver()
     {
         showText("", 80, getHeight() - 48);
@@ -88,6 +116,12 @@ public class Juego extends World
         puntajeTotal = 0;
     }
     
+    /**
+     * Este método se encarga de mostrar e inicializar
+     * la pantalla de nivel 1, en su primer fase, colocando
+     * el fondo de pantalla, agregando los objetos necesarios
+     * e inicializando variables.
+     */
     public void nivel1()
     {
         fase = 1;
@@ -108,6 +142,12 @@ public class Juego extends World
         addObject(principal, getWidth() / 2, getHeight() - 200);
     }
     
+    /**
+     * Este método se encarga de mostrar e inicializar
+     * la pantalla de nivel 2, en su primer fase, colocando
+     * el fondo de pantalla, agregando los objetos necesarios
+     * e inicializando variables.
+     */
     public void nivel2()
     {
         fase = 3;
@@ -131,6 +171,12 @@ public class Juego extends World
         addObject(principal, getWidth() / 2, getHeight() - 200);
     }
     
+    /**
+     * Este método se encarga de mostrar e inicializar
+     * la pantalla de nivel 1, en su segunda fase, colocando
+     * el fondo de pantalla, agregando los objetos necesarios
+     * e inicializando variables.
+     */
     public void nivel1fase2()
     {
         fase = 2;
@@ -148,6 +194,12 @@ public class Juego extends World
         agregaHueco();
     }
     
+    /**
+     * Este método se encarga de mostrar e inicializar
+     * la pantalla de nivel 2, en su segunda fase, colocando
+     * el fondo de pantalla, agregando los objetos necesarios
+     * e inicializando variables.
+     */
     public void nivel2fase2()
     {
         fase = 4;
@@ -165,6 +217,11 @@ public class Juego extends World
         agregaHueco();
     }
     
+    /**
+     * Este método muestra la pantalla de Menú. Coloca
+     * el fondo de pantalla, agregando los objetos necesarios
+     * y fija la velocidad del juego.
+     */
     public void menu()
     {
         setBackground(getImagen(6));
@@ -175,6 +232,12 @@ public class Juego extends World
         Greenfoot.setSpeed(50);
     }
     
+    /**
+     * Este método se encarga de controlar los cambios
+     * ocurridos en la segunda fase de cada nivel, para
+     * que esta llegue a su termino. Además, controla la
+     * inserción de enemigos y de explosiones.
+     */
     public void controlEnemigo()
     {
         if(fase == 2 || fase == 4) {
@@ -205,6 +268,12 @@ public class Juego extends World
         }
     }
     
+    /**
+     * Este método controla la inserción de enemigos en
+     * la segunda fase de cada nivel. Agrega enemigos
+     * especificados en base a condiciones de nivel y
+     * ubicación.
+     */
     public void agregarEnemigo()
     {
         int n = Greenfoot.getRandomNumber(7) * 80;
@@ -236,6 +305,12 @@ public class Juego extends World
         }           
     }
     
+    /**
+     * Este método se encarga de llevar el control de la
+     * inserción de objetos de la clase Nectar al mundo,
+     * además de finalizar el juego, si se terminan las vidas
+     * en la primer fase del juego.
+     */
     public void controlNectar()
     {
         if(fase == 1 || fase == 3)
@@ -252,6 +327,12 @@ public class Juego extends World
         }
     }
     
+    /**
+     * Este método se encarga de agregar objetos de la clase
+     * Nectar, cuidando su ubicación y cantidad, así como de
+     * realizar la transición entre la primer y la segunda fase
+     * de cada nivel.
+     */
     public void agregaNectar()
     {
         int n = Greenfoot.getRandomNumber(getWidth()) + BORDE;
@@ -286,6 +367,10 @@ public class Juego extends World
         }
     }
     
+    /**
+     * Este método se encarga de guardar los datos
+     * que conforman la parte de records.
+     */
     public void guardaRecord()
     {
         if(UserInfo.isStorageAvailable()) {
@@ -297,6 +382,12 @@ public class Juego extends World
         }
     }
     
+    /**
+     * Este método se encarga de agregar los
+     * objetos de la clase Hueco con los que se
+     * puede interactuar en la segunda fase de
+     * cada nivel.
+     */
     public void agregaHueco()
     {
         int x = getWidth() / 2 - 100;
@@ -345,6 +436,12 @@ public class Juego extends World
         } 
     }
     
+    /**
+     * Este método se encarga de controlar la
+     * selección de los respectivos botones en cada
+     * parte del menú. Llama a la función correspondiente
+     * según el botón tocado y reproduce un sonido.
+     */
     public void seleccionar()
     {
         if(Greenfoot.mouseClicked(creditos)) {
@@ -379,63 +476,128 @@ public class Juego extends World
         }
     }
     
+    /**
+     * Este método regresa la imágen (tipo GreenfootImage)
+     * contenida en una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     * @return GreenfootImage - Imágen contenida en la Lista
+     * en la posición especificada.
+     */
      public GreenfootImage getImagen(int n)
     {
         return imagenes.get(n);
     }
     
+    /**
+     * Este método regresa un objeto en especifico de la clase Boton.
+     * 
+     * @return Boton - Objeto jugar de la clase Boton.
+     */
     public Boton getJugar()
     {
         return jugar;
     }
-     
+    
+    /**
+     * Este método regresa un objeto en especifico de la clase Boton.
+     * 
+     * @return Boton - Objeto record de la clase Boton.
+     */
     public Boton getRecord()
     {
         return record;
     }
     
+    /**
+     * Este método regresa un objeto en especifico de la clase Boton.
+     * 
+     * @return Boton - Objeto regresar de la clase Boton.
+     */
     public Boton getRegresar()
     {
         return regresar;
     }
     
+    /**
+     * Este método regresa un objeto en especifico de la clase Boton.
+     * 
+     * @return Boton - Objeto siguiente de la clase Boton.
+     */
     public Boton getSiguiente()
     {
         return siguiente;
     }
     
+    /**
+     * Este método regresa un objeto en especifico de la clase Boton.
+     * 
+     * @return Boton - Objeto siguiente2 de la clase Boton.
+     */
     public Boton getSiguiente2()
     {
         return siguiente2;
     }
     
+    /**
+     * Este método regresa un objeto en especifico de la clase Boton.
+     * 
+     * @return Boton - Objeto creditos de la clase Boton.
+     */
     public Boton getCreditos()
     {
         return creditos;
     }
     
+    /**
+     * Este método regresa un objeto de la clase Carga.
+     * 
+     * @return Carga - Objeto de la clase Carga manejado
+     * en la segunda fase de cada nivel.
+     */
     public Carga getCarga()
     {
         return carga;
     }
     
+    /**
+     * Este método regresa un objeto de la clase Queen.
+     * 
+     * @return Queen - Objeto de la clase Queen manejado
+     * en la segunda fase de cada nivel.
+     */
     public Queen getReyna()
     {
         return reyna;
     }
     
+    /**
+     * Este método se encarga de mostrar la primer pantalla
+     * de ayuda. Asigna el fondo de pantalla y agrega un botón.
+     */
     public void ayuda1()
     {
         setBackground(getImagen(0));
         addObject(siguiente, getWidth() / 2, 540);
     }
     
+    /**
+     * Este método se encarga de mostrar la segunda pantalla
+     * de ayuda. Asigna el fondo de pantalla y agrega un botón.
+     */
     public void ayuda2()
     {
         setBackground(getImagen(1));     
         addObject(siguiente2, getWidth() / 2, 540);
     }
     
+    /**
+     * Este método se encarga de mostrar la pantalla de
+     * records. Asigna el fondo de pantalla, agrega un botón
+     * y el tablero de records.
+     */
     public void record()
     {
         setBackground(getImagen(2));
@@ -443,6 +605,10 @@ public class Juego extends World
         addObject(regresar, getWidth() / 2, 540);
     }
     
+    /**
+     * Este método se encarga de mostrar la pantalla de
+     * créditos. Asigna el fondo de pantalla y agrega un botón.
+     */
     public void creditos()
     {
         setBackground(getImagen(3));

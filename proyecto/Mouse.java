@@ -20,7 +20,7 @@ public class Mouse extends Elemento
     private Boton jugar, record, regresar, siguiente, creditos;
     
     /**
-    * Constructor de la clase Bee. Iniciaiza las variables
+    * Constructor de la clase Mouse. Iniciaiza las variables
     * de instancia, además de definir los sonidos e
     * imágenes que utiliza el objeto de esta clase.
     */

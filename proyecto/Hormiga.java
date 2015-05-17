@@ -5,7 +5,7 @@ import java.util.LinkedList;
  * 
  * @author José Joaquín Ortiz Hernández
  * @author Oscar Torres Silva
- * @version 30/abril/2015
+ * @version 05/mayo/2015
  */
 public class Hormiga extends Enemigo
 {
@@ -55,7 +55,7 @@ public class Hormiga extends Enemigo
     /**
      * Este método intercambia las imagenes del objeto
      * para generar una animación ademas de moverlo 
-     * en la direccion establecida.
+     * en la dirección establecida.
      *
      */   
     public void mover()

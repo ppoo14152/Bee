@@ -1,11 +1,14 @@
 #BlueJ class context
 comment0.params=
 comment0.target=BurbujaNectar()
+comment0.text=\r\n\ Constructor\ de\ la\ clase\ Bee.\ Fija\ frame\ a\ 0,\ adem\u00E1s\r\n\ la\ im\u00E1gen\ que\ utiliza\ el\ objeto\ de\ esta\ clase.\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Este\ m\u00E9todo\ es\ ejecutado\ por\ Greenfoot\ cuando\ se\ Inicia\ el\r\n\ juego.\ Ejecuta\ las\ funciones\ que\ representan\ lo\ que\ el\r\n\ objeto\ de\ esta\ clase\ debe\ hacer\ cuando\ es\ agregado\ al\ mundo.\r\n
 comment2.params=
 comment2.target=void\ mover()
+comment2.text=\r\n\ Este\ m\u00E9todo\ mueve\ un\ objeto\ de\ esta\ clase\ por\ el\ escenario,\r\n\ adem\u00E1s\ de\ redefinir\ su\ posici\u00F3n\ cuando\ llega\ a\ un\ l\u00EDmite\r\n\ establecido.\r\n
 comment3.params=
 comment3.target=void\ tocar()
+comment3.text=\r\n\ Este\ m\u00E9todo\ reposiciona\ al\ objeto\ de\ esta\ clase.\r\n
 numComments=4

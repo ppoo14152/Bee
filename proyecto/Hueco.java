@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.LinkedList;
 import java.util.List;
 /**
- * Esta clase representa el hueco y los tipo de paneles que 
+ * Esta clase representa el hueco y los tipos de paneles que 
  * se pueden usar en la segunda fasee de cada nivel.
  * 
  * @author José Joaquín Ortiz Hernández

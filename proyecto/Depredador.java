@@ -1,6 +1,14 @@
 import greenfoot.*;
 import java.util.LinkedList;
 
+/**
+ * Esta clase representa a un depredador (araña o polilla), un
+ * obstáculo en la primer fase de cada nivel.
+ * 
+ * @author José Joaquín Ortiz Hernández
+ * @author Oscar Torres Silva
+ * @version 05/mayo/2015
+ */
 public class Depredador extends Elemento
 {
     private int frame;
@@ -8,6 +16,11 @@ public class Depredador extends Elemento
     private int pasos;
     private LinkedList <GreenfootImage> imagenes;
     
+    /**
+    * Constructor de la clase Mouse. Iniciaiza las variables
+    * de instancia, además de definir las imagenes que
+    * utiliza el objeto de esta clase.
+    */
     public Depredador(int numero)
     {
         super();
@@ -22,6 +35,17 @@ public class Depredador extends Elemento
         setImagen();
     }
     
+    /**
+     * Este método define la imágen (tipo GreenfootImage)
+     * que el objeto de esta clase va a tomar, además de
+     * definir la distancia que avanzará el objeto al moverse.
+     * Dicha imágen es obtenida de una Lista de la posición
+     * específicada por el valor asignado en la llamada
+     * a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     */
     public void setImagen()
     {
         if(fase == 1) {
@@ -49,11 +73,27 @@ public class Depredador extends Elemento
         frame++;
     }
     
+    /**
+     * Este método regresa la imágen (tipo GreenfootImage)
+     * contenida en una Lista de la posición específicada
+     * por el valor asignado en la llamada a este método.
+     * 
+     * @param int Valor de la posición de la imágen que se
+     * desea obtener.
+     * @return GreenfootImage - Imágen contenida en la Lista
+     * en la posición especificada.
+     */
     public GreenfootImage getImagen(int n)
     {
         return imagenes.get(n);
     }
     
+    /**
+     * Este método mueve un objeto de esta clase por el escenario,
+     * además de redefinir su posición cuando llega a un limite
+     * establecido. También se encarga de animar al objeto
+     * simulando su movimiento
+     */
     public void mover()
     {
         setLocation(getX(), getY() + pasos);
@@ -85,6 +125,12 @@ public class Depredador extends Elemento
         }
     }
     
+    /**
+     * Este método envía varias señales al objeto de la clase Bee
+     * que esté teniendo contacto con un objeto de esta clase.
+     * Dichas señales modifican el estado del objeto de la clase
+     * Bee.
+     */
     public void come()
     {
         Actor b = getOneObjectAtOffset(0, 75, Bee.class);
@@ -95,6 +141,11 @@ public class Depredador extends Elemento
         }
     }
     
+    /**
+     * Este método envía una señal al objeto de la clase
+     * BurbujaNectar que esté teniendo contacto con un objeto
+     * de esta clase.
+     */
     public void tocar()
     {
         Actor b = getOneObjectAtOffset(0, 75, BurbujaNectar.class);
