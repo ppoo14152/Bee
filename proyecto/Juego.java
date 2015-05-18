@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.util.LinkedList;
+
 /**
  * Subclase de World. Respresenta todos los escenarios mostrados
  * en el juego, además de mantener el control de cada uno de los
@@ -112,7 +113,8 @@ public class Juego extends World
         contadorNectar = 0;
         nectarTotal = 0;
         frame = 0;
-        guardaRecord();
+        Record r = new Record();
+        r.guardaRecords(puntajeTotal);
         puntajeTotal = 0;
     }
     
@@ -364,21 +366,6 @@ public class Juego extends World
             }
             contadorNectar++;
             frame = 0;
-        }
-    }
-    
-    /**
-     * Este método se encarga de guardar los datos
-     * que conforman la parte de records.
-     */
-    public void guardaRecord()
-    {
-        if(UserInfo.isStorageAvailable()) {
-            UserInfo myInfo = UserInfo.getMyInfo();
-            if (puntajeTotal > myInfo.getScore()) {
-                myInfo.setScore(puntajeTotal);
-                myInfo.store();
-            }
         }
     }
     
