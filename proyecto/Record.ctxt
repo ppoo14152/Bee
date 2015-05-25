@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=Record()
-comment0.text=\r\n\ Constructor\ de\ la\ clase\ Record.\ Toma\ los\ datos\ del\ jugador\r\n\ siempre\ y\ cuando\ se\ puedan\ obtener\ y\ haya\ espacio\ disponible\r\n
-comment1.params=puntos
-comment1.target=void\ guardaRecords(int)
-comment1.text=\r\n\ Este\ m\u00E9todo\ se\ encarga\ de\ guardar\ los\ puntos\ en\ el\ record\r\n\ del\ usuario\ correspondiente.\r\n\ \r\n\ @param\ int\ puntos\ a\ guardar.\r\n
-numComments=2

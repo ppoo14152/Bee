@@ -113,9 +113,25 @@ public class Juego extends World
         contadorNectar = 0;
         nectarTotal = 0;
         frame = 0;
-        Record r = new Record();
-        r.guardaRecords(puntajeTotal);
+        guardaRecord(puntajeTotal);
         puntajeTotal = 0;
+    }
+    
+    /**
+     * Este método se encarga de guardar el puntaje obtenido
+     * en los Records.
+     * 
+     * @param int Valor de puntos totales.
+     */
+    void guardaRecord(int puntos)
+    {
+        if (UserInfo.isStorageAvailable()) {
+            UserInfo myInfo = UserInfo.getMyInfo();
+            if (puntos > myInfo.getScore()) {
+                myInfo.setScore(puntos);
+                myInfo.store();
+            }
+        }
     }
     
     /**
